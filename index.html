@@ -4244,13 +4244,558 @@ input:checked + .slider:before {
 /* blink-caret keyframes সরানো হয়েছে */
 /* Animated News Ticker Styles End */
 
+
+/* ======================================================== */
+/* START: Important Links Tab Styles (গুরুত্বপূর্ণ লিংকসমূহ) */
+/* ======================================================== */
+
+.important-links-container {
+    max-width: 680px;
+    margin: 0 auto;
+    background-color: #f8fafc; /* Tailwind's gray-50 */
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0; /* Tailwind's gray-200 */
+}
+
+.dark .important-links-container {
+    background-color: #1f2937; /* Tailwind's gray-800 */
+    border-color: #4b5563; /* Tailwind's gray-600 */
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto;
+    object-fit: cover;
+    border: 4px solid #ffffff; /* Tailwind's white */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dark .profile-pic {
+    border-color: #374151; /* Tailwind's gray-700 */
+}
+
+.link-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 14px 20px;
+    text-align: center;
+    border-radius: 12px;
+    background-color: #ffffff; /* Tailwind's white */
+    color: #1f2937; /* Tailwind's gray-800 */
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #e5e7eb; /* Tailwind's gray-200 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dark .link-btn {
+    background-color: #374151; /* Tailwind's gray-700 */
+    color: #f9fafb; /* Tailwind's gray-50 */
+    border-color: #4b5563; /* Tailwind's gray-600 */
+}
+
+.link-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark .link-btn:hover {
+    background-color: #4b5563; /* Tailwind's gray-600 */
+}
+
+.link-btn svg {
+    flex-shrink: 0;
+}
+
+.link-btn span {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.social-icon {
+    color: #4b5563; /* Tailwind's gray-600 */
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.dark .social-icon {
+    color: #9ca3af; /* Tailwind's gray-400 */
+}
+
+.social-icon:hover {
+    color: #111827; /* Tailwind's gray-900 */
+    transform: scale(1.1);
+}
+
+.dark .social-icon:hover {
+    color: #ffffff; /* Tailwind's white */
+}
+
+/* ======================================================== */
+/* END: Important Links Tab Styles                         */
+/* ======================================================== */
+
+/* ======================================================== */
+/* START: হেডিং অ্যানিমেশনের জন্য পরিবর্তিত স্টাইল (Updated Heading Animation Styles) */
+/* ======================================================== */
+
+#main-heading {
+    position: relative; /* গ্লিচ ইফেক্টের জন্য আবশ্যক */
+    z-index: 1; /* অন্যান্য উপাদানের উপরে রাখতে */
+    transition: color 0.3s; /* ডার্ক মোডের জন্য ট্রানজিশন */
+}
+
+/* যখন অ্যানিমেশন ক্লাসটি যোগ করা হবে */
+#main-heading.glitch-effect {
+    /* গ্লিচ ইফেক্টের সময়কাল নিয়ন্ত্রণের জন্য একটি অ্যানিমেশন যোগ করা হয়েছে */
+    /* ফ্যাড-ইন/আউট এবং গ্রেডিয়েন্ট অ্যানিমেশন সরানো হয়েছে */
+    animation: glitch-duration 2s linear;
+}
+
+#main-heading.glitch-effect::before,
+#main-heading.glitch-effect::after {
+    content: 'বাংলা টুলবক্স'; /* আপনার হেডিং টেক্সট */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    /* মূল লেখার রঙ এখন স্বাভাবিক থাকবে কারণ গ্রেডিয়েন্ট সরানো হয়েছে */
+    color: inherit;
+}
+
+#main-heading.glitch-effect::before {
+    left: 2px;
+    text-shadow: -1px 0 red;
+    /* গ্লিচ অ্যানিমেশন অপরিবর্তিত আছে */
+    animation: glitch-anim-1 2s linear alternate-reverse;
+}
+
+#main-heading.glitch-effect::after {
+    left: -2px;
+    text-shadow: -1px 0 blue;
+    /* গ্লিচ অ্যানিমেশন অপরিবর্তিত আছে */
+    animation: glitch-anim-2 2s linear alternate-reverse;
+}
+
+/* নতুন: গ্লিচ ইফেক্টের সময়কাল নিয়ন্ত্রণের জন্য অ্যানিমেশন */
+/* এটি JavaScript-এর 'animationend' ইভেন্টটিকে সঠিকভাবে কাজ করতে সাহায্য করে */
+@keyframes glitch-duration {
+    0%, 100% {
+        opacity: 1;
+    }
+}
+
+/* গ্লিচ অ্যানিমেশন ১ (অপরিবর্তিত) */
+@keyframes glitch-anim-1 {
+    0% { clip: rect(42px, 9999px, 44px, 0); }
+    5% { clip: rect(12px, 9999px, 60px, 0); }
+    10% { clip: rect(40px, 9999px, 40px, 0); }
+    15% { clip: rect(80px, 9999px, 5px, 0); }
+    20% { clip: rect(25px, 9999px, 70px, 0); }
+    25% { clip: rect(55px, 9999px, 33px, 0); }
+    30% { clip: rect(15px, 9999px, 82px, 0); }
+    35% { clip: rect(90px, 9999px, 2px, 0); }
+    40% { clip: rect(33px, 9999px, 50px, 0); }
+    45% { clip: rect(70px, 9999px, 18px, 0); }
+    50% { clip: rect(48px, 9999px, 52px, 0); }
+}
+
+/* গ্লিচ অ্যানিমেশন ২ (অপরিবর্তিত) */
+@keyframes glitch-anim-2 {
+    0% { clip: rect(10px, 9999px, 90px, 0); }
+    10% { clip: rect(80px, 9999px, 10px, 0); }
+    20% { clip: rect(22px, 9999px, 66px, 0); }
+    30% { clip: rect(5px, 9999px, 85px, 0); }
+    40% { clip: rect(60px, 9999px, 30px, 0); }
+    50% { clip: rect(18px, 9999px, 77px, 0); }
+    60% { clip: rect(40px, 9999px, 55px, 0); }
+    70% { clip: rect(75px, 9999px, 5px, 0); }
+    80% { clip: rect(30px, 9999px, 60px, 0); }
+    90% { clip: rect(55px, 9999px, 40px, 0); }
+    100% { clip: rect(15px, 9999px, 80px, 0); }
+}
+/* ======================================================== */
+/* END: হেডিং অ্যানিমেশনের জন্য পরিবর্তিত স্টাইল (Updated Heading Animation Styles) */
+/* ======================================================== */
+
+
+/* ======================================================== */
+/* START: Health & Lifestyle Tab Styles (স্বাস্থ্য ও জীবনধারা) */
+/* ======================================================== */
+
+.health-lifestyle-content {
+    padding: 20px;
+    border-radius: 16px;
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #f8f9fa;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dark .health-lifestyle-content {
+    background-color: #2d3748;
+}
+
+.health-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+@media (min-width: 768px) {
+    .health-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.health-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.dark .health-section {
+    background-color: #1a202c;
+    border-color: #4a5568;
+}
+
+.health-section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #3f51b5;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dark .health-section-title {
+    color: #90cdf4;
+    border-bottom-color: #4a5568;
+}
+
+.health-input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.health-input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #374151;
+    font-weight: 500;
+}
+
+.dark .health-input-group label {
+    color: #cbd5e0;
+}
+
+.health-input, .health-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dark .health-input, .dark .health-select {
+    background-color: #4a5568;
+    border-color: #718096;
+    color: #f7fafc;
+}
+
+.health-input:focus, .health-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.health-calculate-btn {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.health-calculate-btn:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+}
+
+.health-result-area {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 1.7;
+    background-color: #e6f7ff;
+    border: 1px solid #b3e0ff;
+    min-height: 60px;
+}
+
+.dark .health-result-area {
+    background-color: #1a202c;
+    border-color: #4a5568;
+    color: #e2e8f0;
+}
+
+.health-result-area h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #0056b3;
+}
+
+.dark .health-result-area h4 {
+    color: #90cdf4;
+}
+
+.health-result-area p {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+/* ======================================================== */
+/* END: Health & Lifestyle Tab Styles                      */
+/* ======================================================== */
+
+/* ======================================================== */
+/* START: Days/Observances Tab Styles (দিবসসমূহ) */
+/* ======================================================== */
+
+.days-observances-container {
+    padding: 20px;
+    border-radius: 16px;
+    margin: 0 auto;
+    max-width: 900px;
+    background-color: #f8f9fa;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.dark .days-observances-container {
+    background-color: #2d3748;
+}
+
+/* নতুন: আগত দিবস সেকশনের জন্য স্টাইল */
+.upcoming-observances-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+@media (min-width: 640px) {
+    .upcoming-observances-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.upcoming-day-card {
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.upcoming-day-card.national {
+    background: linear-gradient(135deg, #059669, #10b981);
+}
+.upcoming-day-card.international {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+}
+.upcoming-day-card .card-supertitle {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.8;
+    margin-bottom: 4px;
+}
+.upcoming-day-card .card-day-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.upcoming-day-card .card-day-date {
+    font-size: 1.1rem;
+    font-weight: 500;
+    background-color: rgba(0,0,0,0.15);
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.year-selector-wrapper {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.year-selector-wrapper .year-input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #cce7ff;
+    background-color: #eaf6ff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 120px;
+    text-align: center;
+}
+
+.observances-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .observances-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.observance-section {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+.dark .observance-section {
+    background-color: #1a202c;
+    border-color: #4a5568;
+}
+
+.observance-section .section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #3f51b5;
+    margin-bottom: 15px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+.dark .observance-section .section-title {
+    color: #90cdf4;
+    border-bottom-color: #4a5568;
+}
+
+.days-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.day-item {
+    background-color: #e6f7ff;
+    border-left: 4px solid #3b82f6;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.dark .day-item {
+    background-color: #1a202c;
+    border-left-color: #60a5fa;
+}
+
+.day-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.day-item .day-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #1e3a8a;
+}
+.dark .day-item .day-name {
+    color: #bfdbfe;
+}
+
+.day-item .day-date {
+    font-size: 0.95rem;
+    color: #475569;
+    font-weight: 500;
+}
+.dark .day-item .day-date {
+    color: #cbd5e0;
+}
+/* ======================================================== */
+/* END: Days/Observances Tab Styles */
+/* ======================================================== */
+
+    /* ======================================================== */
+    /* START: Holiday List Tab Styles (ছুটির তালিকা) */
+    /* ======================================================== */
+    #holidayTable tbody tr.weekend-holiday {
+        background-color: #fee2e2; /* light red */
+        color: #991b1b; /* dark red text */
+    }
+    .dark #holidayTable tbody tr.weekend-holiday {
+        background-color: #450a0a; /* dark red bg */
+        color: #fecaca; /* light red text */
+    }
+    #holidayTable tbody tr.gov-holiday {
+        background-color: #dcfce7; /* light green */
+        color: #166534; /* dark green text */
+    }
+    .dark #holidayTable tbody tr.gov-holiday {
+        background-color: #064e3b; /* dark green bg */
+        color: #a7f3d0; /* light green text */
+    }
+    /* নতুন: চাঁদ দেখার উপর নির্ভরশীল ছুটির জন্য স্টাইল */
+    #holidayTable tbody tr.moon-sighting-holiday {
+        background-color: #fef9c3; /* light yellow */
+        color: #854d0e; /* dark yellow text */
+    }
+    .dark #holidayTable tbody tr.moon-sighting-holiday {
+        background-color: #423b08; /* dark yellow bg */
+        color: #fde047; /* light yellow text */
+    }
+    #holidayTable tbody tr:hover {
+        background-color: #e0e7ff; /* light blue on hover */
+    }
+    .dark #holidayTable tbody tr:hover {
+        background-color: #374151; /* gray on hover */
+    }
+    #holidayTable th, #holidayTable td {
+        border-bottom: 1px solid #e5e7eb;
+    }
+    .dark #holidayTable th, .dark #holidayTable td {
+        border-bottom: 1px solid #4b5563;
+    }
+    /* ======================================================== */
+    /* END: Holiday List Tab Styles */
+    /* ======================================================== */
+
 <!-- এখান থেকে ওপরে নতুন ট্যাবের সি এস এস কোড লিখতে হবে বা বসাতে হয় বা বসাতে হবে -->
     </style>
 </head>
 <body>
 		<div id="preloader">
 <!-- সামনের এই কমেন্ট অংশটুকু এবং পেছনের কমেন্ট এর অংশটুকু মুছে দিলে ইমেজও দেখা যাবে।	<img id="preloader-image" src="https://cdn.jsdelivr.net/gh/mdsifatgitid/mdsifatgitid.github.io/Md%20Shahiduzzaman%20Sifat.png" alt="Profile Picture"> সামনের অংশটুকু এবং এখানের পিছনের অংশটুকু মুছলে ছবিও দেখা যাবে -->
-			<h1 id="preloader-name">MD. RASEL RAHMAN ROCKY</h1>
+			<h1 id="preloader-name">Md Shahiduzzaman Sifat</h1>
 		</div>
 
     <!-- Animated Background -->
@@ -4308,7 +4853,7 @@ input:checked + .slider:before {
 <!-- Animated News Ticker End -->
 
 
-        <h2 class="text-2xl font-bold text-gray-800 mb-0">বাংলা টুলবক্স</h2>
+        <h2 id="main-heading" class="text-2xl font-bold text-gray-800 mb-0">বাংলা টুলবক্স</h2>
 
         <div class="tab-buttons">
     <!-- থিম টগল বাটন এখানে সরানো হয়েছে -->
@@ -4352,9 +4897,13 @@ input:checked + .slider:before {
 				<!-- ভবিষ্যতে নতুন ট্যাব এখানে যোগ করা যাবে -->
 				<button id="clockTab" class="tab-button rounded-xl">ঘড়ি</button>
 				<button id="playerTab" class="tab-button rounded-xl">প্লেয়ার</button>
+				<button id="daysObservancesTab" class="tab-button rounded-xl">দিবসসমূহ</button>
+				<button id="holidayListTab" class="tab-button rounded-xl">ছুটির তালিকা</button>
 				<button id="zakatCalcTab" class="tab-button rounded-xl">যাকাতের হিসাব</button>
 				<button id="qrCodeTab" class="tab-button rounded-xl">কিউআর কোড</button>
 				<button id="emergencyNumbersTab" class="tab-button rounded-xl">জরুরি নম্বর</button>
+				<button id="healthLifestyleTab" class="tab-button rounded-xl">স্বাস্থ্য ও জীবনধারা</button>
+				<button id="importantLinksTab" class="tab-button rounded-xl">গুরুত্বপূর্ণ লিংকসমূহ</button>
 				<button id="allFeaturesTab" class="tab-button rounded-xl">সকল ফিচার</button>
 			</div>
 		</div>
@@ -4725,35 +5274,34 @@ input:checked + .slider:before {
                     </div>
                 </div>
             </div>
-			<!-- BMI ক্যালকুলেটরের শুরু -->
-<div id="bmi-calculator-container" class="bmi-calculator">
-    <h3 class="bmi-title">বিএমআই (BMI) ক্যালকুলেটর</h3>
-    <p class="bmi-subtitle">আপনার ওজন ও উচ্চতা নিচের ঘরে লিখুন।</p>
-    
-    <!-- ওজন ইনপুট -->
-    <div class="bmi-input-group">
-        <label for="bmi-weight">ওজন (কেজি)</label>
-        <input type="number" id="bmi-weight" placeholder="যেমন: 70">
+			
+	    <!-- নতুন: সময় রূপান্তরকারী সেকশন শুরু -->
+
+<div class="converter-section">
+		<h3>সময় রুপান্তর</h3>
+			<div class="input-row">
+				<div class="input-wrapper">
+				<label for="time24Hour">২৪-ঘণ্টা ফরম্যাট (0-23)</label>
+				<input type="number" id="time24Hour" class="unit-input" placeholder="e.g., 14" min="0" max="23">
+				</div>
+			</div>
+	<div class="input-row">
+				<div class="input-wrapper" style="flex-grow: 2;">
+				<label for="time12Hour">১২-ঘণ্টা ফরম্যাট (1-12)</label>
+			<input type="number" id="time12Hour" class="unit-input" placeholder="e.g., 2" min="1" max="12">
+		</div>
+	<div class="input-wrapper" style="flex-grow: 1;">
+				<label for="timeAmPm">AM/PM</label>
+				<select id="timeAmPm" class="unit-select">
+				<option value="AM">AM</option>
+				<option value="PM">PM</option>
+					</select>
+					</div>
+				</div>
+			</div>
+	<!-- নতুন: সময় রূপান্তরকারী সেকশন শেষ -->
     </div>
-    
-    <!-- উচ্চতা ইনপুট -->
-    <div class="bmi-input-group">
-        <label>উচ্চতা (ফিট ও ইঞ্চি)</label>
-        <div class="bmi-height-inputs">
-            <input type="number" id="bmi-height-feet" placeholder="ফিট">
-            <input type="number" id="bmi-height-inches" placeholder="ইঞ্চি">
-        </div>
-    </div>
-    
-    <!-- হিসাব করার বাটন -->
-    <button id="bmi-calculate-btn">হিসাব করুন</button>
-    
-    <!-- ফলাফল দেখানোর স্থান -->
-    <div id="bmi-result" class="bmi-result-section"></div>
-</div>
-<!-- BMI ক্যালকুলেটরের শেষ -->
-        </div>
-    </div>
+   </div>
 </div>
 <!-- পরিমাপ (ইউনিট কনভার্টার) বিভাগ শেষ -->
 
@@ -5449,6 +5997,18 @@ input:checked + .slider:before {
 <div id="notepadContent" class="calculator-content">
     <div class="notepad-container relative"> <!-- Toolbar-এর পজিশনের জন্য relative ক্লাস যুক্ত করা হয়েছে -->
         <h3 class="text-xl font-bold text-gray-700 mb-4 dark:text-gray-200">নোটপ্যাড / টু-ডু লিস্ট</h3>
+		<div class="notepad-controls flex flex-wrap justify-between items-center gap-4 mb-4 p-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
+    <!-- Find Feature -->
+    <div class="find-feature flex items-center gap-2">
+        <input type="text" id="notepadFindInput" placeholder="নোটে খুঁজুন..." class="p-2 border rounded-lg dark:bg-gray-600 dark:border-gray-500 dark:text-white text-sm">
+        <button id="notepadFindBtn" class="px-3 py-2 bg-blue-500 text-white text-sm font-semibold rounded-lg hover:bg-blue-600">খুঁজুন</button>
+    </div>
+    <!-- Export Feature -->
+    <div class="export-feature flex items-center gap-2">
+        <button id="exportTxtBtn" class="px-3 py-2 bg-green-500 text-white text-sm font-semibold rounded-lg hover:bg-green-600">.txt এক্সপোর্ট</button>
+        <button id="exportHtmlBtn" class="px-3 py-2 bg-purple-500 text-white text-sm font-semibold rounded-lg hover:bg-purple-600">.html এক্সপোর্ট</button>
+    </div>
+</div>
         <p class="text-gray-600 dark:text-gray-400 mb-4">আপনার কাজ বা নোট যোগ করুন। ব্রাউজার বন্ধ করলেও আপনার ডেটা সেভ থাকবে। ছবিও পেস্ট করে যুক্ত করা যাবে।</p>
         
         <!-- ফরম্যাটিং অ্যাকশন বার -->
@@ -5744,13 +6304,240 @@ input:checked + .slider:before {
         <h3 class="text-xl font-bold text-gray-700 mb-2 dark:text-gray-200">জরুরি সেবার নম্বর</h3>
         <p class="text-gray-600 dark:text-gray-400 mb-4">জাতীয় জরুরি সেবা অথবা আপনার জেলা নির্বাচন করে প্রয়োজনীয় নম্বরগুলো দেখুন। নাম্বারগুলো যাচাই করা প্রয়োজন অথবা কাঙ্খিত সঠিক নাম্বারটি এডিট করে রাখতে পারবেন। ব্রাউজার বন্ধ করলেও নাম্বারটি সেভ থাকবে।</p>
 
-        <div class="emergency-controls">
-            <label for="location-select" class="font-semibold text-gray-700 dark:text-gray-300">অবস্থান নির্বাচন করুন:</label>
-            <select id="location-select" class="w-full sm:w-auto p-2 border rounded-lg dark:bg-gray-600 dark:border-gray-500 dark:text-white focus:ring-2 focus:ring-blue-500 transition-all"></select>
-        </div>
+		<div class="emergency-controls">
+			<label for="location-select" class="font-semibold text-gray-700 dark:text-gray-300">অবস্থান নির্বাচন করুন:</label>
+			<select id="location-select" class="w-full sm:w-auto p-2 border rounded-lg dark:bg-gray-600 dark:border-gray-500 dark:text-white focus:ring-2 focus:ring-blue-500 transition-all"></select>
+    
+			<!-- নতুন বাটন -->
+			<button id="addEmergencyCardBtn" class="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors">নতুন কার্ড যুক্ত করুন</button>
+		</div>
 
         <div id="emergency-numbers-display" class="emergency-numbers-grid">
             <!-- জরুরি নম্বরগুলো এখানে জাভাস্ক্রিপ্ট দ্বারা যুক্ত হবে -->
+        </div>
+    </div>
+</div>
+
+<!-- নতুন: গুরুত্বপূর্ণ লিংকসমূহ বিভাগ -->
+<div id="importantLinksContent" class="calculator-content">
+    <div class="important-links-container p-4 sm:p-6">
+        <!-- Profile Section -->
+        <div class="text-center mb-6">
+            <img class="profile-pic" src="https://cdn.jsdelivr.net/gh/mdsifatgitid/mdsifatgitid.github.io/Md%20Shahiduzzaman%20Sifat.png" alt="Profile Picture">
+            <h2 class="text-2xl font-bold mt-4 text-gray-800 dark:text-gray-100">Md Shahiduzzaman Sifat</h2>
+            <p class="text-gray-600 dark:text-gray-400 mt-1">Developer of 'Bangla Toolbox', Tech Enthusiast</p>
+        </div>
+
+        <!-- Links Section -->
+        <div class="flex flex-col gap-4">
+            <!-- Example Link 1: Website -->
+            <a href="https://bio.link/mdsifatbiolink" target="_blank" class="link-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span>বায়ো প্রোফাইল (সকল লিংক এখানে)</span>
+            </a>
+            <!-- Example Link 2: GitHub -->
+            <a href="https://www.remove.bg/" target="_blank" class="link-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span>ব্যাকগ্রাউন্ড রিমুভ</span>
+            </a>
+            <a href="https://www.sejda.com/" target="_blank" class="link-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span>পিডিএফ এডিটর</span>
+            </a>
+            <a href="https://crex.com/live-matches" target="_blank" class="link-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span>ক্রিকেট লাইভ স্কোর</span>
+            </a>
+            <a href="https://livestreamcricket.cc/" target="_blank" class="link-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span>ক্রিকেট লাইভ ম্যাচ ১</span>
+            </a>
+            <a href="https://durbintvlive.com/match/" target="_blank" class="link-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span>ক্রিকেট লাইভ ম্যাচ ২</span>
+            </a>
+            <!-- Example Link 3: Facebook -->
+            <a href="https://www.facebook.com/mdsifatfbid" target="_blank" class="link-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                <span>ফেসবুক</span>
+            </a>
+             <!-- Example Link 4: Email -->
+            <a href="mailto:banglatoolbox@gmail.com" class="link-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>ইমেইল</span>
+            </a>
+        </div>
+
+        <!-- Social Icons Section -->
+        <div class="flex justify-center gap-6 mt-8">
+            <a href="https://facebook.com/mdsifatfbid" target="_blank" class="social-icon" title="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+             <a href="https://www.youtube.com/@mdsifatytid" target="_blank" class="social-icon" title="YouTube">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
+            <a href="https://x.com/mdsifatttid" target="_blank" class="social-icon" title="Twitter / X">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- নতুন: স্বাস্থ্য ও জীবনধারা ট্যাব -->
+<div id="healthLifestyleContent" class="calculator-content">
+    <div class="health-lifestyle-content">
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6 text-center">স্বাস্থ্য ও জীবনধারা</h3>
+        <div class="health-grid">
+            <!-- প্রেগন্যান্সি ডিউ ডেট ক্যালকুলেটর -->
+            <div class="health-section">
+                <h4 class="health-section-title">
+                    <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+                    <span>প্রেগন্যান্সি ডিউ ডেট ক্যালকুলেটর</span>
+                </h4>
+                <div class="health-input-group">
+                    <label for="lmpDate">আপনার শেষ মাসিকের প্রথম দিন:</label>
+                    <input type="date" id="lmpDate" class="health-input">
+                </div>
+                <button id="calculateDueDateBtn" class="health-calculate-btn">হিসাব করুন</button>
+                <div id="dueDateResultArea" class="health-result-area">
+                    <p>অনুগ্রহ করে তারিখ নির্বাচন করুন।</p>
+                </div>
+            </div>
+
+            <!-- পানি পানের পরিমাণ ক্যালকুলেটর -->
+            <div class="health-section">
+                <h4 class="health-section-title">
+                    <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+                    <span>দৈনিক পানি পানের পরিমাণ</span>
+                </h4>
+                <div class="health-input-group">
+                    <label for="userAge">বয়স (বছর):</label>
+                    <input type="number" id="userAge" placeholder="যেমন: 25" class="health-input">
+                </div>
+                <div class="health-input-group">
+                    <label for="userWeight">ওজন (কেজি):</label>
+                    <input type="number" id="userWeight" placeholder="যেমন: 65" class="health-input">
+                </div>
+                <div class="health-input-group">
+                    <label for="activityLevel">কাজের ধরন:</label>
+                    <select id="activityLevel" class="health-select">
+                        <option value="0">বসে কাজ (Sedentary)</option>
+                        <option value="30">হালকা সক্রিয় (Lightly Active)</option>
+                        <option value="60">মাঝারি সক্রিয় (Moderately Active)</option>
+                        <option value="90">খুব সক্রিয় (Very Active)</option>
+                    </select>
+                </div>
+                <button id="calculateWaterIntakeBtn" class="health-calculate-btn">হিসাব করুন</button>
+                <div id="waterIntakeResultArea" class="health-result-area">
+                    <p>অনুগ্রহ করে তথ্য দিন।</p>
+                </div>
+            </div>
+			<!-- BMI ক্যালকুলেটরের শুরু -->
+<div id="bmi-calculator-container" class="bmi-calculator">
+    <h3 class="bmi-title">বিএমআই (BMI) ক্যালকুলেটর</h3>
+    <p class="bmi-subtitle">আপনার ওজন ও উচ্চতা নিচের ঘরে লিখুন।</p>
+    
+    <!-- ওজন ইনপুট -->
+    <div class="bmi-input-group">
+        <label for="bmi-weight">ওজন (কেজি)</label>
+        <input type="number" id="bmi-weight" placeholder="যেমন: 70">
+    </div>
+    
+    <!-- উচ্চতা ইনপুট -->
+    <div class="bmi-input-group">
+        <label>উচ্চতা (ফিট ও ইঞ্চি)</label>
+        <div class="bmi-height-inputs">
+            <input type="number" id="bmi-height-feet" placeholder="ফিট">
+            <input type="number" id="bmi-height-inches" placeholder="ইঞ্চি">
+        </div>
+    </div>
+    
+    <!-- হিসাব করার বাটন -->
+    <button id="bmi-calculate-btn">হিসাব করুন</button>
+    
+    <!-- ফলাফল দেখানোর স্থান -->
+    <div id="bmi-result" class="bmi-result-section"></div>
+</div>
+<!-- BMI ক্যালকুলেটরের শেষ -->
+        </div>
+    </div>
+</div>
+
+<!-- নতুন: দিবসসমূহ ট্যাব -->
+<div id="daysObservancesContent" class="calculator-content">
+    <div class="days-observances-container">
+        <h3 class="text-xl font-bold text-gray-700 mb-4 dark:text-gray-200">দিবসসমূহ</h3>
+        
+        <!-- নতুন: আগত দিবস সেকশন -->
+        <div id="upcomingObservances" class="upcoming-observances-container mb-6">
+            <div id="upcomingNationalDay" class="upcoming-day-card national">
+                <!-- JavaScript দ্বারা পূর্ণ হবে -->
+            </div>
+            <div id="upcomingInternationalDay" class="upcoming-day-card international">
+                <!-- JavaScript দ্বারা পূর্ণ হবে -->
+            </div>
+        </div>
+
+        <div class="year-selector-wrapper mb-6">
+            <label for="observanceYearSelect" class="font-semibold text-gray-700 dark:text-gray-300 mr-2">বছর নির্বাচন করুন:</label>
+            <input type="number" id="observanceYearSelect" class="year-input dark:bg-gray-600 dark:border-gray-500 dark:text-white focus:ring-2 focus:ring-blue-500 transition-all">
+        </div>
+        <div class="observances-grid">
+            <div class="observance-section">
+                <h4 class="section-title">বাংলাদেশী দিবসসমূহ</h4>
+                <div id="bangladeshiDaysList" class="days-list">
+                    <!-- JavaScript দ্বারা পূর্ণ হবে -->
+                </div>
+            </div>
+            <div class="observance-section">
+                <h4 class="section-title">আন্তর্জাতিক দিবসসমূহ</h4>
+                <div id="internationalDaysList" class="days-list">
+                    <!-- JavaScript দ্বারা পূর্ণ হবে -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- নতুন: ছুটির তালিকা ট্যাব -->
+<div id="holidayListContent" class="calculator-content">
+    <div class="days-observances-container"> <!-- Reusing existing style for consistency -->
+        <h3 class="text-xl font-bold text-gray-700 mb-4 dark:text-gray-200">সরকারি ছুটির তালিকা</h3>
+        
+        <!-- পরিবর্তন: আগত ছুটির কার্ডটি মাঝে আনা হয়েছে -->
+        <div id="upcomingHolidayContainer" class="flex justify-center mb-6">
+            <div id="upcomingHolidayCard" class="upcoming-day-card w-full max-w-sm" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
+                <!-- JavaScript দ্বারা পূর্ণ হবে -->
+            </div>
+        </div>
+
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+            সাপ্তাহিক ছুটি (লাল), সরকারি ছুটি (সবুজ), এবং চাঁদ দেখার উপর নির্ভরশীল ছুটিগুলো (হলুদ) দেখানো হয়েছে। ডেটা Gemini API অথবা Nager.Date API থেকে লোড করা হয়েছে। তথ্য যাচাই প্রয়োজন হতে পারে।
+        </p>
+        <!-- পরিবর্তন: রিফ্রেশ বাটন যোগ করা হয়েছে -->
+        <div class="year-selector-wrapper mb-6 flex justify-center items-center gap-4">
+            <label for="holidayYearSelect" class="font-semibold text-gray-700 dark:text-gray-300 mr-2">বছর নির্বাচন করুন:</label>
+            <input type="number" id="holidayYearSelect" class="year-input dark:bg-gray-600 dark:border-gray-500 dark:text-white focus:ring-2 focus:ring-blue-500 transition-all">
+            <button id="refreshHolidayListBtn" class="p-2 bg-indigo-500 text-white rounded-full hover:bg-indigo-600 transition-colors" title="তালিকা রিফ্রেশ করুন">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+                </svg>
+            </button>
+        </div>
+        <div class="overflow-x-auto max-h-[60vh] relative min-h-[300px]">
+            <table id="holidayTable" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400 sticky top-0">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">তারিখ</th>
+                        <th scope="col" class="px-6 py-3">বার</th>
+                        <th scope="col" class="px-6 py-3">উপলক্ষ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Holiday rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -6381,6 +7168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const timeString = now.toLocaleTimeString('bn-BD', {
                 hour: '2-digit',
                 minute: '2-digit',
+				second: '2-digit', // সেকেন্ড যোগ করা হয়েছে
                 hour12: true,
                 timeZone: 'Asia/Dhaka'
             });
@@ -7633,6 +8421,80 @@ function showResult(message, className) {
     }
 }
 // BMI Calculator Script - শেষ
+
+
+// START: Time Converter (24-hour to 12-hour) Script
+
+function initializeTimeConverter() {
+const time24HourInput = document.getElementById('time24Hour');
+const time12HourInput = document.getElementById('time12Hour');
+const timeAmPmSelect = document.getElementById('timeAmPm');
+
+// নিশ্চিত করুন যে উপাদানগুলি বিদ্যমান আছে
+if (!time24HourInput || !time12HourInput || !timeAmPmSelect) {
+    console.error("Time converter elements not found!");
+    return;
+}
+
+// ফাংশন: ২৪-ঘণ্টা থেকে ১২-ঘণ্টা ফরম্যাটে রূপান্তর
+const convertTo12Hour = () => {
+    const hour24 = parseInt(time24HourInput.value, 10);
+
+    if (isNaN(hour24) || hour24 < 0 || hour24 > 23) {
+        time12HourInput.value = '';
+        return;
+    }
+
+    const period = hour24 >= 12 ? 'PM' : 'AM';
+    let hour12 = hour24 % 12;
+
+    if (hour12 === 0) { // মধ্যরাত (00:xx) এবং দুপুর (12:xx) এর জন্য
+        hour12 = 12;
+    }
+
+    time12HourInput.value = hour12;
+    timeAmPmSelect.value = period;
+};
+
+// ফাংশন: ১২-ঘণ্টা থেকে ২৪-ঘণ্টা ফরম্যাটে রূপান্তর
+const convertTo24Hour = () => {
+    let hour12 = parseInt(time12HourInput.value, 10);
+    const period = timeAmPmSelect.value;
+
+    if (isNaN(hour12) || hour12 < 1 || hour12 > 12) {
+        time24HourInput.value = '';
+        return;
+    }
+
+    let hour24 = 0;
+    if (period === 'PM' && hour12 < 12) {
+        hour24 = hour12 + 12;
+    } else if (period === 'AM' && hour12 === 12) { // মধ্যরাতের জন্য বিশেষ নিয়ম
+        hour24 = 0;
+    } else {
+        hour24 = hour12;
+    }
+
+    time24HourInput.value = hour24;
+};
+
+// ইনপুট এবং পরিবর্তনের জন্য ইভেন্ট লিসেনার যুক্ত করুন
+time24HourInput.addEventListener('input', convertTo12Hour);
+time12HourInput.addEventListener('input', convertTo24Hour);
+timeAmPmSelect.addEventListener('change', convertTo24Hour);
+
+}
+
+// DOMContentLoaded ইভেন্টের মধ্যে এই ফাংশনটি কল করুন
+document.addEventListener('DOMContentLoaded', () => {
+initializeTimeConverter();
+});
+
+// END: Time Converter Script
+
+
+
+
 // ====================================================================
 // END: UNIT CONVERTER (MEASUREMENT) SCRIPT (CORRECTED)
 // ====================================================================
@@ -7921,8 +8783,15 @@ try {
 				const qrCodeTab = document.getElementById('qrCodeTab');
 				const qrCodeContent = document.getElementById('qrCodeContent');
 				const emergencyNumbersTab = document.getElementById('emergencyNumbersTab');
+				const importantLinksTab = document.getElementById('importantLinksTab');
+				const importantLinksContent = document.getElementById('importantLinksContent');
 				const emergencyNumbersContent = document.getElementById('emergencyNumbersContent');
-
+				const healthLifestyleTab = document.getElementById('healthLifestyleTab');
+				const healthLifestyleContent = document.getElementById('healthLifestyleContent');
+				const daysObservancesTab = document.getElementById('daysObservancesTab');
+				const daysObservancesContent = document.getElementById('daysObservancesContent');
+				const holidayListTab = document.getElementById('holidayListTab');
+				const holidayListContent = document.getElementById('holidayListContent');
 
 
 //pest button code start
@@ -8180,18 +9049,18 @@ function showTab(tabId) {
     // সমস্ত ট্যাব এর নাম এবং ট্যাব এর কন্টেন্ট নাম একানে বসাতে হয়, এই দুটি সেকশনে নতুন ট্যাবের নাম এবং কনটেন্ট নাম যুক্ত করতে হয় বা বসাতে হয় ।
     const tabs = [
         basicCalcTab,
-		ageCalcTab, dateCalcTab, scientificCalcTab, newsTab, converterTab, measurementTab, typingTestTab, zakatCalcTab,
-		translatorTab, mapTab, prayerTimeTab, imageToTextTab, wordCounterTab, weatherTab, notepadTab, clockTab,playerTab,
-		qrCodeTab,emergencyNumbersTab, spellCheckTab, textBeautifierTab, wordMeaningTab, ttsTab, sttTab, 
-        textAssistantTab,
+		ageCalcTab, dateCalcTab, scientificCalcTab, newsTab, converterTab, measurementTab, typingTestTab, zakatCalcTab,healthLifestyleTab,
+		translatorTab, mapTab, prayerTimeTab, imageToTextTab, wordCounterTab, weatherTab, notepadTab, clockTab,playerTab,daysObservancesTab,
+		qrCodeTab,emergencyNumbersTab, spellCheckTab, textBeautifierTab, wordMeaningTab, ttsTab, sttTab, importantLinksTab,
+        textAssistantTab,holidayListTab,
 		allFeaturesTab
     ];
     const contents = [
         basicCalculatorContent,
-		ageCalculatorContent, dateCalculatorContent, emergencyNumbersContent,scientificCalculatorContent, newsContent, converterContent,
+		ageCalculatorContent, dateCalculatorContent, emergencyNumbersContent,scientificCalculatorContent, newsContent, converterContent,healthLifestyleContent,daysObservancesContent,holidayListContent,
         measurementContent, typingTestContent, translatorContent, mapContent,  prayerTimeContent, imageToTextContent, wordCounterContent,
 		weatherContent, notepadContent, clockContent, playerContent,qrCodeContent, spellCheckerContent, textBeautifierContent, wordMeaningContent,
-		textToSpeechContent, speechToTextContent, textAssistantContent, zakatCalculatorContent,
+		textToSpeechContent, speechToTextContent, textAssistantContent, zakatCalculatorContent,importantLinksContent,
         allFeaturesContent
     ];
 
@@ -8255,6 +9124,11 @@ function showTab(tabId) {
             activeContent = prayerTimeContent;
             initializePrayerTimeTab();
             break;
+		case 'daysObservances':
+			activeTab = daysObservancesTab;
+			activeContent = daysObservancesContent;
+			initializeDaysObservancesTab();
+		break;
 		case 'zakat':
 			activeTab = zakatCalcTab;
 			activeContent = zakatCalculatorContent;
@@ -8266,6 +9140,10 @@ function showTab(tabId) {
 		case 'wordCounter':
 			activeTab = wordCounterTab;
 			activeContent = wordCounterContent;
+		break;
+		case 'healthLifestyle':
+			activeTab = healthLifestyleTab;
+			activeContent = healthLifestyleContent;
 		break;
 		case 'weather': // নতুন এই case টি যোগ করুন
             activeTab = weatherTab;
@@ -8284,6 +9162,15 @@ function showTab(tabId) {
             activeTab = qrCodeTab;
             activeContent = qrCodeContent;
             break;
+		case 'importantLinks':
+			activeTab = importantLinksTab;
+			activeContent = importantLinksContent;
+		break;
+		case 'holiday':
+			activeTab = holidayListTab;
+			activeContent = holidayListContent;
+			initializeHolidayListTab();
+		break;
 		case 'player':
 			activeTab = playerTab;
 			activeContent = playerContent;
@@ -8353,13 +9240,17 @@ function showTab(tabId) {
 					showTab('notepad');
 					await initializeNotepad(); // Notepad চালু করার জন্য এই ফাংশন কল করুন
 					});
+				if (healthLifestyleTab) healthLifestyleTab.addEventListener('click', () => {showTab('healthLifestyle');	initializeHealthLifestyleTab();});
 				if (clockTab) clockTab.addEventListener('click', () => showTab('clock'));
 				if (playerTab) playerTab.addEventListener('click', () => showTab('player'));
 				if (zakatCalcTab) zakatCalcTab.addEventListener('click', () => showTab('zakat'));
 				if (qrCodeTab) qrCodeTab.addEventListener('click', () => showTab('qrCode'));
+				if (importantLinksTab) importantLinksTab.addEventListener('click', () => showTab('importantLinks'));
                 if (textAssistantTab) textAssistantTab.addEventListener('click', () => showTab('textAssistant'));
                 if (allFeaturesTab) allFeaturesTab.addEventListener('click', () => showTab('allFeatures'));
 				if (emergencyNumbersTab) emergencyNumbersTab.addEventListener('click', () => showTab('emergency'));
+				if (daysObservancesTab) daysObservancesTab.addEventListener('click', () => showTab('daysObservances'));
+				if (holidayListTab) holidayListTab.addEventListener('click', () => showTab('holiday'));
 
                 // API কী সেটিং বোতাম এবং মডেল লজিক
                 if (setApiKeyBtn) {
@@ -10396,6 +11287,13 @@ async function initializeNotepad() {
     const taskList = document.getElementById('taskList');
     const actionToolbar = document.getElementById('notepadActionToolbar');
 
+    // নতুন ফিচারগুলোর জন্য DOM এলিমেন্ট
+    const exportTxtBtn = document.getElementById('exportTxtBtn');
+    const exportHtmlBtn = document.getElementById('exportHtmlBtn');
+    const findInput = document.getElementById('notepadFindInput');
+    const findBtn = document.getElementById('notepadFindBtn');
+    let lastSearchQuery = '';
+
     if (!taskInput || !addTaskBtn || !taskList || !actionToolbar) return;
 
     // --- Action Toolbar Logic ---
@@ -10479,19 +11377,13 @@ async function initializeNotepad() {
             tempDiv.appendChild(contentFragment);
             let processedHtml = tempDiv.innerHTML;
             
-            // অনুচ্ছেদ বা প্যারাগ্রাফের জন্য ব্যবহৃত div বা p ট্যাগের শেষে একটি লাইন ব্রেক (<br>) যোগ করা হচ্ছে
             processedHtml = processedHtml.replace(/<\/(div|p)>/gi, '<br>');
-            
-            // যদি অতিরিক্ত লাইন ব্রেক তৈরি হয়, তবে সেগুলো একটিতে নামিয়ে আনা হচ্ছে
             processedHtml = processedHtml.replace(/(<br\s*\/?>\s*){2,}/gi, '<br>');
-
-            // শুধুমাত্র <br> ট্যাগ বাদে বাকি সব HTML ট্যাগ মুছে ফেলা হচ্ছে
             const cleanedHtml = processedHtml.replace(/<\/?(?!(br|BR)\s*\/?)[^>]+>/g, '');
             
-            // আগের সিলেকশনের জায়গায় পরিষ্কার করা HTML কোডটি বসানো হচ্ছে
             document.execCommand('insertHTML', false, cleanedHtml);
             
-            saveTasks(); // পরিবর্তন সেভ করা হচ্ছে
+            saveTasks();
 
         } else {
             document.execCommand(command, false, null);
@@ -10543,7 +11435,7 @@ async function initializeNotepad() {
             return;
         }
         createTaskElement({ type: 'text', content, completed: false, pinned: false });
-		showCustomAlert('নোট সফলভাবে যোগ করা হয়েছে!'); // এই লাইনটি যোগ করুন
+		showCustomAlert('নোট সফলভাবে যোগ করা হয়েছে!');
         taskInput.innerHTML = '';
         await saveTasks();
         await loadTasks();
@@ -10647,23 +11539,17 @@ async function initializeNotepad() {
         actionsDiv.querySelector('.copy').addEventListener('click', () => {
              if (type === 'text') {
                 const contentToCopy = li.querySelector('.task-text').innerHTML;
-                
-                // Create a temporary element to hold the rich text content
                 const tempEl = document.createElement('div');
                 tempEl.style.position = 'absolute';
-                tempEl.style.left = '-9999px'; // Move it off-screen
+                tempEl.style.left = '-9999px';
                 tempEl.innerHTML = contentToCopy;
                 document.body.appendChild(tempEl);
-
                 try {
-                    // Select the content of the temporary element
                     const range = document.createRange();
                     range.selectNodeContents(tempEl);
                     const selection = window.getSelection();
                     selection.removeAllRanges();
                     selection.addRange(range);
-
-                    // Execute the copy command
                     const successful = document.execCommand('copy');
                     if (successful) {
                         showCustomAlert('নোটের লেখা ফরম্যাটিং সহ কপি করা হয়েছে!');
@@ -10674,11 +11560,9 @@ async function initializeNotepad() {
                     console.error('কপি করতে ব্যর্থ:', err);
                     showCustomAlert('কপি করতে ব্যর্থ হয়েছে। অনুগ্রহ করে ম্যানুয়ালি কপি করুন।');
                 } finally {
-                    // Clean up: remove the temporary element and clear selection
                     document.body.removeChild(tempEl);
                     window.getSelection().removeAllRanges();
                 }
-
             } else if (type === 'image') {
                 const capEl = li.querySelector('.task-image-caption');
                 if (capEl && capEl.innerText && capEl.innerText !== 'ক্যাপশন যোগ করতে ডাবল-ক্লিক করুন...') {
@@ -10734,7 +11618,144 @@ async function initializeNotepad() {
             return (offset < 0 && offset > closest.offset) ? { offset, element: child } : closest;
         }, { offset: Number.NEGATIVE_INFINITY }).element;
     }
+
+    // --- নতুন ফাংশন (এক্সপোর্ট এবং ফাইন্ড) ---
+    const downloadFile = (content, fileName, contentType) => {
+        const a = document.createElement("a");
+        const file = new Blob([content], { type: `${contentType};charset=utf-8` });
+        a.href = URL.createObjectURL(file);
+        a.download = fileName;
+        a.click();
+        URL.revokeObjectURL(a.href);
+    };
+
+    const exportNotepadAsTXT = () => {
+        const tasks = Array.from(taskList.querySelectorAll('.task-item'));
+        if (tasks.length === 0) {
+            showCustomAlert('এক্সপোর্ট করার জন্য কোনো নোট নেই।');
+            return;
+        }
+        let textContent = `বাংলা টুলবক্স - নোটপ্যাড\r\n${new Date().toLocaleString('bn-BD')}\r\n====================================\r\n\r\n`;
+
+        tasks.forEach((item, index) => {
+            textContent += `নোট ${index + 1}:\r\n`;
+            const textEl = item.querySelector('.task-text');
+            const imgEl = item.querySelector('.task-image');
+
+            if (textEl) {
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = textEl.innerHTML.replace(/<br\s*\/?>/gi, '\r\n').replace(/<\/p>/gi, '\r\n').replace(/<\/div>/gi, '\r\n');
+                textContent += tempDiv.textContent || tempDiv.innerText || '';
+            } else if (imgEl) {
+                const captionEl = item.querySelector('.task-image-caption');
+                textContent += `[ছবি]`;
+                if (captionEl && captionEl.innerText !== 'ক্যাপশন যোগ করতে ডাবল-ক্লিক করুন...') {
+                    textContent += `\r\nক্যাপশন: ${captionEl.innerText}`;
+                }
+            }
+            textContent += `\r\n\r\n------------------------------------\r\n\r\n`;
+        });
+        
+        downloadFile(textContent, 'bangla-toolbox-notes.txt', 'text/plain');
+    };
+
+    const exportNotepadAsHTML = () => {
+        const tasks = Array.from(taskList.querySelectorAll('.task-item'));
+        if (tasks.length === 0) {
+            showCustomAlert('এক্সপোর্ট করার জন্য কোনো নোট নেই।');
+            return;
+        }
+        let bodyContent = '';
+        tasks.forEach((item, index) => {
+            bodyContent += `<div class="note-item"><h3>নোট ${index + 1}</h3>`;
+            const contentDiv = item.querySelector('.task-text, div > .task-image');
+            if(contentDiv){
+                 bodyContent += contentDiv.parentElement.innerHTML;
+            }
+            bodyContent += `</div>`;
+        });
+
+        const htmlContent = `
+            <!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><title>নোটসমূহ</title>
+            <style>body{font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto;} .note-item{border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-bottom: 20px; word-wrap: break-word;} h1, h2{border-bottom: 2px solid #eee; padding-bottom: 10px;} img{max-width: 100%; height: auto; border-radius: 8px;}</style>
+            </head><body><h1>বাংলা টুলবক্স - নোটসমূহ</h1><h2>${new Date().toLocaleString('bn-BD')}</h2>${bodyContent}</body></html>`;
+        
+        downloadFile(htmlContent, 'bangla-toolbox-notes.html', 'text/html');
+    };
+
+    const findInNotepad = () => {
+        const query = findInput.value.trim();
+        
+        taskList.querySelectorAll('mark').forEach(mark => {
+            const parent = mark.parentNode;
+            if (parent) {
+                parent.replaceChild(document.createTextNode(mark.textContent), mark);
+                parent.normalize();
+            }
+        });
+
+        if (!query) {
+            lastSearchQuery = '';
+            return;
+        }
+        if (query.toLowerCase() === lastSearchQuery.toLowerCase()) return;
+        lastSearchQuery = query;
+
+        const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+        let matchFound = false;
+
+        taskList.querySelectorAll('.task-text, .task-image-caption').forEach(task => {
+            const treeWalker = document.createTreeWalker(task, NodeFilter.SHOW_TEXT);
+            let currentNode;
+            const nodesToReplace = [];
+
+            while (currentNode = treeWalker.nextNode()) {
+                const text = currentNode.nodeValue;
+                if (regex.test(text)) {
+                    nodesToReplace.push(currentNode);
+                }
+            }
+            
+            nodesToReplace.forEach(node => {
+                const parent = node.parentNode;
+                const fragment = document.createDocumentFragment();
+                let lastIndex = 0;
+                node.nodeValue.replace(regex, (match, offset) => {
+                    fragment.appendChild(document.createTextNode(node.nodeValue.substring(lastIndex, offset)));
+                    const mark = document.createElement('mark');
+                    mark.textContent = match;
+                    fragment.appendChild(mark);
+                    lastIndex = offset + match.length;
+                    if (!matchFound) {
+                        setTimeout(() => mark.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+                        matchFound = true;
+                    }
+                });
+                fragment.appendChild(document.createTextNode(node.nodeValue.substring(lastIndex)));
+                parent.replaceChild(fragment, node);
+            });
+        });
+
+        if (!matchFound) showCustomAlert("কোনো ফলাফল পাওয়া যায়নি।");
+    };
+
+    if(exportTxtBtn) exportTxtBtn.addEventListener('click', exportNotepadAsTXT);
+    if(exportHtmlBtn) exportHtmlBtn.addEventListener('click', exportNotepadAsHTML);
+    if(findBtn) findBtn.addEventListener('click', findInNotepad);
+    if(findInput) {
+        findInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') findInNotepad();
+            if (e.key === 'Escape') {
+                findInput.value = '';
+                findInNotepad();
+            }
+        });
+        findInput.addEventListener('input', () => {
+            if(findInput.value.trim() === '') findInNotepad();
+        });
+    }
 }
+
 // ====================================================================
 // END: NOTEPAD SCRIPT
 // ====================================================================
@@ -11894,15 +12915,14 @@ const generateQRCode = () => {
 // ====================================================================
 // START: EMERGENCY NUMBERS SCRIPT
 // ====================================================================
-
 function initializeEmergencyNumbers() {
     const locationSelect = document.getElementById('location-select');
     const numbersDisplay = document.getElementById('emergency-numbers-display');
+    const addCardBtn = document.getElementById('addEmergencyCardBtn'); // নতুন বাটন
 
     const districtNameMap = {
         "national": "জাতীয় জরুরি সেবা", "Bagerhat": "বাগেরহাট", "Bandarban": "বান্দরবান", "Barguna": "বরগুনা", "Barisal": "বরিশাল", "Bhola": "ভোলা", "Bogra": "বগুড়া", "Brahmanbaria": "ব্রাহ্মণবাড়িয়া", "Chandpur": "চাঁদপুর", "Chapai Nawabganj": "চাঁপাইনবাবগঞ্জ", "Chittagong": "চট্টগ্রাম", "Chuadanga": "চুয়াডাঙ্গা", "Comilla": "কুমিল্লা", "Cox's Bazar": "কক্সবাজার", "Dhaka": "ঢাকা", "Dinajpur": "দিনাজপুর", "Faridpur": "ফরিদপুর", "Feni": "ফেনী", "Gaibandha": "গাইবান্ধা", "Gazipur": "গাজীপুর", "Gopalganj": "গোপালগঞ্জ", "Habiganj": "হবিগঞ্জ", "Jamalpur": "জামালপুর", "Jessore": "যশোর", "Jhalokati": "ঝালকাঠি", "Jhenaidah": "ঝিনাইদহ", "Joypurhat": "জয়পুরহাট", "Khagrachhari": "খাগড়াছড়ি", "Khulna": "খুলনা", "Kishoreganj": "কিশোরগঞ্জ", "Kurigram": "কুড়িগ্রাম", "Kushtia": "কুষ্টিয়া", "Lakshmipur": "লক্ষ্মীপুর", "Lalmonirhat": "লালমনিরহাট", "Madaripur": "মাদারীপুর", "Magura": "মাগুরা", "Manikganj": "মানিকগঞ্জ", "Meherpur": "মেহেরপুর", "Moulvibazar": "মৌলভীবাজার", "Munshiganj": "মুন্সিগঞ্জ", "Mymensingh": "ময়মনসিংহ", "Naogaon": "নওগাঁ", "Narail": "নড়াইল", "Narayanganj": "নারায়ণগঞ্জ", "Narsingdi": "নরসিংদী", "Natore": "নাটোর", "Netrokona": "নেত্রকোনা", "Nilphamari": "নীলফামারী", "Noakhali": "নোয়াখালী", "Pabna": "পাবনা", "Panchagarh": "পঞ্চগড়", "Patuakhali": "পটুয়াখালী", "Pirojpur": "পিরোজপুর", "Rajbari": "রাজবাড়ী", "Rajshahi": "রাজশাহী", "Rangamati": "রাঙ্গামাটি", "Rangpur": "রংপুর", "Satkhira": "সাতক্ষীরা", "Shariatpur": "শরীয়তপুর", "Sherpur": "শেরপুর", "Sirajganj": "সিরাজগঞ্জ", "Sunamganj": "সুনামগঞ্জ", "Sylhet": "সিলেট", "Tangail": "টাঙ্গাইল", "Thakurgaon": "ঠাকুরগাঁও"
     };
-
     const emergencyNumbersData = {
         "national": [
             { name: "জাতীয় জরুরি সেবা", number: "999" }, { name: "নারী ও শিশু নির্যাতন প্রতিরোধ", number: "109" }, { name: "শিশু সহায়তা", number: "1098" }, { name: "সরকারি আইন সেবা", number: "16430" }, { name: "দুর্নীতি দমন কমিশন", number: "106" }, { name: "স্বাস্থ্য বাতায়ন", number: "16263" }, { name: "দুর্যোগের আগাম বার্তা", number: "1090" }, { name: "বাংলাদেশ ব্যাংক", number: "16236" },
@@ -11913,101 +12933,176 @@ function initializeEmergencyNumbers() {
         "Dhaka": [
             { name: "ডিএমপি কন্ট্রোল রুম", number: "01320-042000" }, { name: "ফায়ার সার্ভিস হেডকোয়ার্টার", number: "02-223355555" }, { name: "ঢাকা মেডিকেল কলেজ হাসপাতাল", number: "+880-2-55165000" }, { name: "বঙ্গবন্ধু শেখ মুজিব মেডিকেল বিশ্ববিদ্যালয়", number: "+880-2-55165760" }, { name: "ঢাকা বিদ্যুৎ বিতরণ কর্তৃপক্ষ", number: "16116" },
         ],
-        // ... (অন্যান্য জেলার ডাটা এখানে থাকবে)
         "Bagerhat": [{ name: "পুলিশ সুপার, বাগেরহাট", number: "01320142100" }, { name: "ফায়ার সার্ভিস, বাগেরহাট", number: "02-47772222" }, { name: "সদর হাসপাতাল, বাগেরহাট", number: "+88046863232" }], "Bandarban": [{ name: "পুলিশ সুপার, বান্দরবান", number: "01320142200" }, { name: "ফায়ার সার্ভিস, বান্দরবান", number: "0361-62555" }, { name: "সদর হাসপাতাল, বান্দরবান", number: "+88036162544" }], "Barguna": [{ name: "পুলিশ সুপার, বরগুনা", number: "01320142300" }, { name: "ফায়ার সার্ভিস, বরগুনা", number: "0448-62444" }, { name: "সদর হাসপাতাল, বরগুনা", number: "+88044862234" }], "Barisal": [{ name: "পুলিশ সুপার, বরিশাল", number: "01320142400" }, { name: "ফায়ার সার্ভিস, বরিশাল", number: "0431-63888" }, { name: "শের-ই-বাংলা মেডিকেল কলেজ হাসপাতাল", number: "+880431-2173314" }], "Bhola": [{ name: "পুলিশ সুপার, ভোলা", number: "01320142600" }, { name: "ফায়ার সার্ভিস, ভোলা", number: "0491-61333" }, { name: "সদর হাসপাতাল, ভোলা", number: "+88049161291" }], "Bogra": [{ name: "পুলিশ সুপার, বগুড়া", number: "01320132900" }, { name: "ফায়ার সার্ভিস, বগুড়া", number: "051-65555" }, { name: "শহীদ জিয়াউর রহমান মেডিকেল কলেজ", number: "+88051-78701" }], "Brahmanbaria": [{ name: "পুলিশ সুপার, ব্রাহ্মণবাড়িয়া", number: "01320133200" }, { name: "ফায়ার সার্ভিস, ব্রাহ্মণবাড়িয়া", number: "0851-61444" }, { name: "সদর হাসপাতাল, ব্রাহ্মণবাড়িয়া", number: "+88085158494" }], "Chandpur": [{ name: "পুলিশ সুপার, চাঁদপুর", number: "01320133400" }, { name: "ফায়ার সার্ভিস, চাঁদপুর", number: "0841-63333" }, { name: "সদর হাসপাতাল, চাঁদপুর", number: "+88084163497" }], "Chapai Nawabganj": [{ name: "পুলিশ সুপার, চাঁপাইনবাবগঞ্জ", number: "01320133500" }, { name: "ফায়ার সার্ভিস, চাঁপাইনবাবগঞ্জ", number: "0781-52333" }, { name: "সদর হাসপাতাল, চাঁপাইনবাবগঞ্জ", number: "+88078152341" }], "Chittagong": [{ name: "সিএমপি কন্ট্রোল রুম", number: "01676-123123" }, { name: "ফায়ার সার্ভিস, আগ্রাবাদ", number: "031-634444" }, { name: "চট্টগ্রাম মেডিকেল কলেজ হাসপাতাল", number: "+88031619620" }], "Chuadanga": [{ name: "পুলিশ সুপার, চুয়াডাঙ্গা", number: "01320143000" }, { name: "ফায়ার সার্ভিস, চুয়াডাঙ্গা", number: "0761-62333" }, { name: "সদর হাসপাতাল, চুয়াডাঙ্গা", number: "+88076162312" }], "Comilla": [{ name: "পুলিশ সুপার, কুমিল্লা", number: "01320134000" }, { name: "ফায়ার সার্ভিস, কুমিল্লা", number: "081-76333" }, { name: "কুমিল্লা মেডিকেল কলেজ হাসপাতাল", number: "+8808168788" }], "Cox's Bazar": [{ name: "পুলিশ সুপার, কক্সবাজার", number: "01320134300" }, { name: "ফায়ার সার্ভিস, কক্সবাজার", number: "0341-64333" }, { name: "সদর হাসপাতাল, কক্সবাজার", number: "+88034164222" }], "Dinajpur": [{ name: "পুলিশ সুপার, দিনাজপুর", number: "01320134800" }, { name: "ফায়ার সার্ভিস, দিনাজপুর", number: "0531-64444" }, { name: "এম আব্দুর রহিম মেডিকেল কলেজ হাসপাতাল", number: "+88053163152" }], "Faridpur": [{ name: "পুলিশ সুপার, ফরিদপুর", number: "01320135100" }, { name: "ফায়ার সার্ভিস, ফরিদপুর", number: "0631-63333" }, { name: "বঙ্গবন্ধু শেখ মুজিব মেডিকেল কলেজ", number: "+88063162758" }], "Feni": [{ name: "পুলিশ সুপার, ফেনী", number: "01320135300" }, { name: "ফায়ার সার্ভিস, ফেনী", number: "0331-63333" }, { name: "সদর হাসপাতাল, ফেনী", number: "+88033162000" }], "Gazipur": [{ name: "জিএমপি কন্ট্রোল রুম", number: "01320042000" }, { name: "ফায়ার সার্ভিস, গাজীপুর", number: "02-9263333" }, { name: "শহীদ তাজউদ্দীন আহমদ মেডিকেল কলেজ", number: "+88029263004" }], "Gopalganj": [{ name: "পুলিশ সুপার, গোপালগঞ্জ", number: "01320135800" }, { name: "ফায়ার সার্ভিস, গোপালগঞ্জ", number: "0668-61333" }, { name: "সদর হাসপাতাল, গোপালগঞ্জ", number: "+88066861250" }], "Habiganj": [{ name: "পুলিশ সুপার, হবিগঞ্জ", number: "01320136000" }, { name: "ফায়ার সার্ভিস, হবিগঞ্জ", number: "0831-64444" }, { name: "সদর হাসপাতাল, হবিগঞ্জ", number: "+88083162094" }], "Jamalpur": [{ name: "পুলিশ সুপার, জামালপুর", number: "01320136200" }, { name: "ফায়ার সার্ভিস, জামালপুর", number: "0981-63333" }, { name: "সদর হাসপাতাল, জামালপুর", number: "+88098163450" }], "Jessore": [{ name: "পুলিশ সুপার, যশোর", number: "01320143400" }, { name: "ফায়ার সার্ভিস, যশোর", number: "0421-68888" }, { name: "সদর হাসপাতাল, যশোর", number: "+88042165215" }], "Jhalokati": [{ name: "পুলিশ সুপার, ঝালকাঠি", number: "01320142800" }, { name: "ফায়ার সার্ভিস, ঝালকাঠি", number: "0498-63333" }, { name: "সদর হাসপাতাল, ঝালকাঠি", number: "+88049863453" }], "Jhenaidah": [{ name: "পুলিশ সুপার, ঝিনাইদহ", number: "01320143700" }, { name: "ফায়ার সার্ভিস, ঝিনাইদহ", number: "0451-62333" }, { name: "সদর হাসপাতাল, ঝিনাইদহ", number: "+88045162300" }], "Joypurhat": [{ name: "পুলিশ সুপার, জয়পুরহাট", number: "01320136400" }, { name: "ফায়ার সার্ভিস, জয়পুরহাট", number: "0571-62333" }, { name: "সদর হাসপাতাল, জয়পুরহাট", number: "+88057162241" }], "Khagrachhari": [{ name: "পুলিশ সুপার, খাগড়াছড়ি", number: "01320136600" }, { name: "ফায়ার সার্ভিস, খাগড়াছড়ি", number: "0371-61555" }, { name: "সদর হাসপাতাল, খাগড়াছড়ি", number: "+88037161828" }], "Khulna": [{ name: "কেএমপি কন্ট্রোল রুম", number: "01320-043100" }, { name: "ফায়ার সার্ভিস, খুলনা", number: "041-762222" }, { name: "খুলনা মেডিকেল কলেজ হাসপাতাল", number: "+88041761699" }], "Kishoreganj": [{ name: "পুলিশ সুপার, কিশোরগঞ্জ", number: "01320136800" }, { name: "ফায়ার সার্ভিস, কিশোরগঞ্জ", number: "0941-61999" }, { name: "সদর হাসপাতাল, কিশোরগঞ্জ", number: "+88094161962" }], "Kurigram": [{ name: "পুলিশ সুপার, কুড়িগ্রাম", number: "01320137000" }, { name: "ফায়ার সার্ভিস, কুড়িগ্রাম", number: "0581-61666" }, { name: "সদর হাসপাতাল, কুড়িগ্রাম", number: "+88058161541" }], "Kushtia": [{ name: "পুলিশ সুপার, কুষ্টিয়া", number: "01320144200" }, { name: "ফায়ার সার্ভিস, কুষ্টিয়া", number: "071-62222" }, { name: "সদর হাসপাতাল, কুষ্টিয়া", number: "+8807162339" }], "Lakshmipur": [{ name: "পুলিশ সুপার, লক্ষ্মীপুর", number: "01320137300" }, { name: "ফায়ার সার্ভিস, লক্ষ্মীপুর", number: "0381-61444" }, { name: "সদর হাসপাতাল, লক্ষ্মীপুর", number: "+88038161350" }], "Lalmonirhat": [{ name: "পুলিশ সুপার, লালমনিরহাট", number: "01320137500" }, { name: "ফায়ার সার্ভিস, লালমনিরহাট", number: "0591-61333" }, { name: "সদর হাসপাতাল, লালমনিরহাট", number: "+88059161300" }], "Madaripur": [{ name: "পুলিশ সুপার, মাদারীপুর", number: "01320137700" }, { name: "ফায়ার সার্ভিস, মাদারীপুর", number: "0661-61777" }, { name: "সদর হাসপাতাল, মাদারীপুর", number: "+88066161835" }], "Magura": [{ name: "পুলিশ সুপার, মাগুরা", number: "01320144400" }, { name: "ফায়ার সার্ভিস, মাগুরা", number: "0488-62444" }, { name: "সদর হাসপাতাল, মাগুরা", number: "+88048862441" }], "Manikganj": [{ name: "পুলিশ সুপার, মানিকগঞ্জ", number: "01320137900" }, { name: "ফায়ার সার্ভিস, মানিকগঞ্জ", number: "02-7710333" }, { name: "সদর হাসপাতাল, মানিকগঞ্জ", number: "+88027710202" }], "Meherpur": [{ name: "পুলিশ সুপার, মেহেরপুর", number: "01320144600" }, { name: "ফায়ার সার্ভিস, মেহেরপুর", number: "0791-62333" }, { name: "সদর হাসপাতাল, মেহেরপুর", number: "+88079162234" }], "Moulvibazar": [{ name: "পুলিশ সুপার, মৌলভীবাজার", number: "01320138100" }, { name: "ফায়ার সার্ভিস, মৌলভীবাজার", number: "0861-52333" }, { name: "সদর হাসপাতাল, মৌলভীবাজার", number: "+88086152285" }], "Munshiganj": [{ name: "পুলিশ সুপার, মুন্সিগঞ্জ", number: "01320138300" }, { name: "ফায়ার সার্ভিস, মুন্সিগঞ্জ", number: "02-7612222" }, { name: "সদর হাসপাতাল, মুন্সিগঞ্জ", number: "+88027612140" }], "Mymensingh": [{ name: "পুলিশ সুপার, ময়মনসিংহ", number: "01320138500" }, { name: "ফায়ার সার্ভিস, ময়মনসিংহ", number: "091-65555" }, { name: "ময়মনসিংহ মেডিকেল কলেজ হাসপাতাল", number: "+8809166060" }], "Naogaon": [{ name: "পুলিশ সুপার, নওগাঁ", number: "01320138800" }, { name: "ফায়ার সার্ভিস, নওগাঁ", number: "0741-62333" }, { name: "সদর হাসপাতাল, নওগাঁ", number: "+88074162351" }], "Narail": [{ name: "পুলিশ সুপার, নড়াইল", number: "01320144800" }, { name: "ফায়ার সার্ভিস, নড়াইল", number: "0481-62444" }, { name: "সদর হাসপাতাল, নড়াইল", number: "+88048162268" }], "Narayanganj": [{ name: "পুলিশ সুপার, নারায়ণগঞ্জ", number: "01320139000" }, { name: "ফায়ার সার্ভিস, নারায়ণগঞ্জ", number: "02-7647333" }, { name: "সদর হাসপাতাল, নারায়ণগঞ্জ", number: "+88027649501" }], "Narsingdi": [{ name: "পুলিশ সুপার, নরসিংদী", number: "01320139200" }, { name: "ফায়ার সার্ভিস, নরসিংদী", number: "02-9462333" }, { name: "সদর হাসপাতাল, নরসিংদী", number: "+88029462270" }], "Natore": [{ name: "পুলিশ সুপার, নাটোর", number: "01320139400" }, { name: "ফায়ার সার্ভিস, নাটোর", number: "0771-66333" }, { name: "সদর হাসপাতাল, নাটোর", number: "+88077166556" }], "Netrokona": [{ name: "পুলিশ সুপার, নেত্রকোনা", number: "01320139600" }, { name: "ফায়ার সার্ভিস, নেত্রকোনা", number: "0951-61444" }, { name: "সদর হাসপাতাল, নেত্রকোনা", number: "+88095161560" }], "Nilphamari": [{ name: "পুলিশ সুপার, নীলফামারী", number: "01320139800" }, { name: "ফায়ার সার্ভিস, নীলফামারী", number: "0551-61444" }, { name: "সদর হাসপাতাল, নীলফামারী", number: "+88055161300" }], "Noakhali": [{ name: "পুলিশ সুপার, নোয়াখালী", number: "01320140000" }, { name: "ফায়ার সার্ভিস, নোয়াখালী", number: "0321-62222" }, { name: "আব্দুল মালেক উকিল মেডিকেল কলেজ", number: "+88032161217" }], "Pabna": [{ name: "পুলিশ সুপার, পাবনা", number: "01320140300" }, { name: "ফায়ার সার্ভিস, পাবনা", number: "0731-66000" }, { name: "সদর হাসপাতাল, পাবনা", number: "+88073165354" }], "Panchagarh": [{ name: "পুলিশ সুপার, পঞ্চগড়", number: "01320140500" }, { name: "ফায়ার সার্ভিস, পঞ্চগড়", number: "0568-61333" }, { name: "সদর হাসপাতাল, পঞ্চগড়", number: "+88056861250" }], "Patuakhali": [{ name: "পুলিশ সুপার, পটুয়াখালী", number: "01320145000" }, { name: "ফায়ার সার্ভিস, পটুয়াখালী", number: "0441-62333" }, { name: "সদর হাসপাতাল, পটুয়াখালী", number: "+88044162483" }], "Pirojpur": [{ name: "পুলিশ সুপার, পিরোজপুর", number: "01320145200" }, { name: "ফায়ার সার্ভিস, পিরোজপুর", number: "0461-62444" }, { name: "সদর হাসপাতাল, পিরোজপুর", number: "+88046162350" }], "Rajbari": [{ name: "পুলিশ সুপার, রাজবাড়ী", number: "01320140700" }, { name: "ফায়ার সার্ভিস, রাজবাড়ী", number: "0641-65333" }, { name: "সদর হাসপাতাল, রাজবাড়ী", number: "+88064165561" }], "Rajshahi": [{ name: "আরএমপি কন্ট্রোল রুম", number: "01320-041000" }, { name: "ফায়ার সার্ভিস, রাজশাহী", number: "0721-772222" }, { name: "রাজশাহী মেডিকেল কলেজ হাসপাতাল", number: "+880721772428" }], "Rangamati": [{ name: "পুলিশ সুপার, রাঙ্গামাটি", number: "01320141200" }, { name: "ফায়ার সার্ভিস, রাঙ্গামাটি", number: "0351-63333" }, { name: "সদর হাসপাতাল, রাঙ্গামাটি", number: "+88035162211" }], "Rangpur": [{ name: "পুলিশ সুপার, রংপুর", number: "01320141400" }, { name: "ফায়ার সার্ভিস, রংপুর", number: "0521-62222" }, { name: "রংপুর মেডিকেল কলেজ হাসপাতাল", number: "+88052162121" }], "Satkhira": [{ name: "পুলিশ সুপার, সাতক্ষীরা", number: "01320145400" }, { name: "ফায়ার সার্ভিস, সাতক্ষীরা", number: "0471-63333" }, { name: "সদর হাসপাতাল, সাতক্ষীরা", number: "+88047163283" }], "Shariatpur": [{ name: "পুলিশ সুপার, শরীয়তপুর", number: "01320141700" }, { name: "ফায়ার সার্ভিস, শরীয়তপুর", number: "0601-61444" }, { name: "সদর হাসপাতাল, শরীয়তপুর", number: "+88060161453" }], "Sherpur": [{ name: "পুলিশ সুপার, শেরপুর", number: "01320141900" }, { name: "ফায়ার সার্ভিস, শেরপুর", number: "0931-61333" }, { name: "সদর হাসপাতাল, শেরপুর", number: "+88093161281" }], "Sirajganj": [{ name: "পুলিশ সুপার, সিরাজগঞ্জ", number: "01320142100" }, { name: "ফায়ার সার্ভিস, সিরাজগঞ্জ", number: "0751-62333" }, { name: "সদর হাসপাতাল, সিরাজগঞ্জ", number: "+88075162499" }], "Sunamganj": [{ name: "পুলিশ সুপার, সুনামগঞ্জ", number: "01320142300" }, { name: "ফায়ার সার্ভিস, সুনামগঞ্জ", number: "0871-61444" }, { name: "সদর হাসপাতাল, সুনামগঞ্জ", number: "+88087161300" }], "Sylhet": [{ name: "এসএমপি কন্ট্রোল রুম", number: "01320-099999" }, { name: "ফায়ার সার্ভিস, সিলেট", number: "0821-714444" }, { name: "এম.এ.জি. ওসমানী মেডিকেল কলেজ", number: "+880821716970" }], "Tangail": [{ name: "পুলিশ সুপার, টাঙ্গাইল", number: "01320142700" }, { name: "ফায়ার সার্ভিস, টাঙ্গাইল", number: "0921-62222" }, { name: "সদর হাসপাতাল, টাঙ্গাইল", number: "+88092163456" }], "Thakurgaon": [{ name: "পুলিশ সুপার, ঠাকুরগাঁও", number: "01320142900" }, { name: "ফায়ার সার্ভিস, ঠাকুরগাঁও", number: "0561-52444" }, { name: "সদর হাসপাতাল, ঠাকুরগাঁও", number: "+88056152026" }]
     };
-    
-    // নম্বরগুলো প্রদর্শন করার ফাংশন
+
+
+    // ডিলিট করার আগে সতর্কতা দেখানোর জন্য ফাংশন
+    function showDeleteConfirmation(message, onConfirm) {
+        const overlay = document.createElement('div');
+        overlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+        
+        const modal = document.createElement('div');
+        modal.style.cssText = 'background: white; padding: 25px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); max-width: 350px;';
+        
+        if (document.documentElement.classList.contains('dark')) {
+            modal.style.background = '#2d3748';
+            modal.style.color = '#e2e8f0';
+        }
+
+        modal.innerHTML = `
+            <p style="margin-bottom: 20px; font-size: 1.1rem;">${message}</p>
+            <div style="display: flex; justify-content: space-around; gap: 10px;">
+                <button id="confirmBtn" style="padding: 10px 20px; border: none; border-radius: 8px; background: #ef4444; color: white; cursor: pointer; flex: 1;">হ্যাঁ, মুছুন</button>
+                <button id="cancelBtn" style="padding: 10px 20px; border: none; border-radius: 8px; background: #6c757d; color: white; cursor: pointer; flex: 1;">বাতিল করুন</button>
+            </div>
+        `;
+        
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+
+        const closeDialog = () => document.body.removeChild(overlay);
+
+        modal.querySelector('#confirmBtn').onclick = () => { onConfirm(); closeDialog(); };
+        modal.querySelector('#cancelBtn').onclick = closeDialog;
+    }
+
+    // নতুন কার্ড মুছে ফেলার ফাংশন
+    const deleteEmergencyCard = async (keyToDelete) => {
+        const customNumbers = await idbGet('customEmergencyNumbers') || {};
+        if (customNumbers[keyToDelete]) {
+            delete customNumbers[keyToDelete];
+            await idbSet('customEmergencyNumbers', customNumbers);
+            showCustomAlert('কার্ড মুছে ফেলা হয়েছে!');
+            displayNumbers(locationSelect.value); // তালিকা পুনরায় রেন্ডার করুন
+        }
+    };
+
     const displayNumbers = async (location) => {
         if (!numbersDisplay) return;
         numbersDisplay.innerHTML = '';
         
-        // IndexedDB থেকে কাস্টম নম্বর লোড করুন
         const customNumbers = await idbGet('customEmergencyNumbers') || {};
-
         const defaultNumbers = emergencyNumbersData[location] || [];
 
-        if (defaultNumbers.length === 0) {
+        const allNumbers = [];
+
+        // ডিফল্ট নম্বর যোগ করুন
+        defaultNumbers.forEach((item, index) => {
+            const itemKey = `${location}-${index}`;
+            const savedCustomData = customNumbers[itemKey];
+            const number = savedCustomData ? savedCustomData.number : item.number;
+            const name = savedCustomData ? savedCustomData.name : item.name;
+            allNumbers.push({ ...item, name, number, key: itemKey, isCustom: false });
+        });
+
+        // কাস্টম নম্বর যোগ করুন
+        for (const key in customNumbers) {
+            if (key.startsWith(`${location}-custom-`)) {
+                allNumbers.push({ ...customNumbers[key], key: key, isCustom: true });
+            }
+        }
+
+        if (allNumbers.length === 0) {
             numbersDisplay.innerHTML = `<p class="text-gray-500 dark:text-gray-400 col-span-full text-center">এই জেলার জন্য কোনো নম্বর যোগ করা হয়নি।</p>`;
             return;
         }
 
-        defaultNumbers.forEach((item, index) => {
-            const itemKey = `${location}-${index}`;
-            // যদি কাস্টম নম্বর থাকে, সেটি ব্যবহার করুন, নাহলে ডিফল্ট নম্বর ব্যবহার করুন
-            const currentNumber = customNumbers[itemKey] || item.number;
-
+        allNumbers.forEach(item => {
             const card = document.createElement('div');
             card.className = 'emergency-card';
+
+            const deleteButtonHTML = item.isCustom ? `
+                <button class="action-btn delete" title="কার্ড মুছে ফেলুন">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/><path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/></svg>
+                </button>
+            ` : '';
+
             card.innerHTML = `
                 <div>
-                    <h4 class="card-title">${item.name}</h4>
-                    <p class="card-number" data-key="${itemKey}">${currentNumber}</p>
+                    <h4 class="card-title" data-key="${item.key}">${item.name}</h4>
+                    <p class="card-number" data-key="${item.key}">${item.number}</p>
                 </div>
                 <div class="actions">
-                     <button class="action-btn edit" title="নম্বর এডিট করুন">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/></svg>
-                    </button>
-                    <button class="action-btn copy" title="নম্বর কপি করুন">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/></svg>
-                    </button>
+                     <button class="action-btn edit" title="এডিট করুন"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/></svg></button>
+                    <button class="action-btn copy" title="নম্বর কপি করুন"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/></svg></button>
+                    ${deleteButtonHTML}
                 </div>
-                <a href="tel:${currentNumber}" class="call-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.363-1.03-.038-2.137.703-2.877z"/></svg>
-                    কল করুন
-                </a>
+                <a href="tel:${item.number}" class="call-button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.363-1.03-.038-2.137.703-2.877z"/></svg>কল করুন</a>
             `;
             numbersDisplay.appendChild(card);
             
-            // Action বাটনগুলোর জন্য ইভেন্ট লিসেনার
+            const titleEl = card.querySelector('.card-title');
             const numberEl = card.querySelector('.card-number');
             const editBtn = card.querySelector('.action-btn.edit');
             const copyBtn = card.querySelector('.action-btn.copy');
+            const deleteBtn = card.querySelector('.action-btn.delete');
             const callBtn = card.querySelector('.call-button');
 
-            editBtn.addEventListener('click', () => {
+            editBtn.addEventListener('click', () => { 
+                titleEl.contentEditable = true;
                 numberEl.contentEditable = true;
                 numberEl.focus();
-                // টেক্সট সিলেক্ট করুন
-                const range = document.createRange();
-                range.selectNodeContents(numberEl);
-                const sel = window.getSelection();
-                sel.removeAllRanges();
-                sel.addRange(range);
             });
 
-            copyBtn.addEventListener('click', () => {
-                navigator.clipboard.writeText(numberEl.textContent).then(() => {
-                    showCustomAlert('নম্বর কপি করা হয়েছে!');
-                }).catch(err => {
-                    console.error('Copy failed', err);
-                    showCustomAlert('কপি করতে ব্যর্থ হয়েছে।');
-                });
+            copyBtn.addEventListener('click', () => { 
+                const textToCopy = `${titleEl.textContent.trim()}\n${numberEl.textContent.trim()}`;
+                navigator.clipboard.writeText(textToCopy).then(() => showCustomAlert('নাম ও নম্বর কপি করা হয়েছে!'));
             });
             
-            numberEl.addEventListener('blur', async () => {
+            if (deleteBtn) {
+                deleteBtn.addEventListener('click', () => {
+                    showDeleteConfirmation(`আপনি কি '${item.name}' কার্ডটি মুছে ফেলতে চান?`, () => {
+                        deleteEmergencyCard(item.key);
+                    });
+                });
+            }
+            
+            const saveChanges = async () => {
+                titleEl.contentEditable = false;
                 numberEl.contentEditable = false;
+
+                const newName = titleEl.textContent.trim();
                 const newNumber = numberEl.textContent.trim();
                 const key = numberEl.dataset.key;
-                
-                // কল বাটনের href আপডেট করুন
+
                 callBtn.href = `tel:${newNumber}`;
 
-                // IndexedDB তে সেভ করুন
                 const allCustomNumbers = await idbGet('customEmergencyNumbers') || {};
-                allCustomNumbers[key] = newNumber;
-                await idbSet('customEmergencyNumbers', allCustomNumbers);
-                showCustomAlert('নম্বর সেভ করা হয়েছে!');
-            });
-            
-            // Enter চাপলে এডিট মোড থেকে বের হওয়ার জন্য
-            numberEl.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    numberEl.blur();
+                const originalDefaultItem = defaultNumbers.find(d => `${location}-${defaultNumbers.indexOf(d)}` === key);
+
+                // যদি কোনো কিছু পরিবর্তন হয়, তবেই সেভ করুন
+                if (newName !== item.name || newNumber !== item.number) {
+                    allCustomNumbers[key] = { name: newName, number: newNumber };
+                    await idbSet('customEmergencyNumbers', allCustomNumbers);
+                    showCustomAlert('পরিবর্তন সেভ করা হয়েছে!');
                 }
-            });
+            };
+            
+            titleEl.addEventListener('blur', saveChanges);
+            numberEl.addEventListener('blur', saveChanges);
+            
+            const handleKeydown = e => { if (e.key === 'Enter') { e.preventDefault(); e.target.blur(); }};
+            titleEl.addEventListener('keydown', handleKeydown);
+            numberEl.addEventListener('keydown', handleKeydown);
         });
+    };
+
+    const addNewEmergencyCard = async () => {
+        const name = prompt("সেবার নাম লিখুন:", "");
+        if (name === null || name.trim() === "") return;
+        const number = prompt("নম্বরটি লিখুন:", "");
+        if (number === null || number.trim() === "") return;
+
+        const location = locationSelect.value;
+        const key = `${location}-custom-${Date.now()}`;
+        
+        const customNumbers = await idbGet('customEmergencyNumbers') || {};
+        customNumbers[key] = { name: name.trim(), number: number.trim() };
+        await idbSet('customEmergencyNumbers', customNumbers);
+
+        showCustomAlert('নতুন কার্ড যুক্ত করা হয়েছে!');
+        displayNumbers(location);
     };
 
     const populateDropdown = () => {
@@ -12042,25 +13137,23 @@ function initializeEmergencyNumbers() {
             localStorage.setItem('selectedEmergencyLocation', selectedLocation);
         });
     }
+    if (addCardBtn) addCardBtn.addEventListener('click', addNewEmergencyCard);
     
     // ইনিশিয়ালাইজেশন
     populateDropdown();
-    
     const savedLocation = localStorage.getItem('selectedEmergencyLocation');
     
     if (locationSelect) {
-        if (savedLocation && emergencyNumbersData[savedLocation]) {
+        if (savedLocation && (emergencyNumbersData[savedLocation] || Object.keys(idbGet('customEmergencyNumbers') || {}).some(k => k.startsWith(savedLocation)))) {
             locationSelect.value = savedLocation;
         } else {
-            locationSelect.value = 'Gaibandha';
+            locationSelect.value = 'Gaibandha'; // ডিফল্ট লোকেশন
             localStorage.setItem('selectedEmergencyLocation', 'Gaibandha');
         }
-    }
-    
-    if (locationSelect) {
         displayNumbers(locationSelect.value);
     }
 }
+
 // ====================================================================
 // END: EMERGENCY NUMBERS SCRIPT
 // ====================================================================
@@ -12166,6 +13259,38 @@ document.addEventListener('DOMContentLoaded', () => {
 // ====================================================================
 
 // ====================================================================
+// START: Animated Bangla Toolbox Heading
+// ====================================================================
+document.addEventListener('DOMContentLoaded', () => {
+const mainHeading = document.getElementById('main-heading');
+
+if (mainHeading) {
+    // প্রতি সেকেন্ডে সময় পরীক্ষা করার জন্য
+    setInterval(() => {
+        const seconds = new Date().getSeconds();
+
+        // ব্যানারের মিনিটের শুরু থেকে 30 সেকেন্ড হলে, তখন অ্যানিমেশন ট্রিগার করুন
+        if ((seconds === 30) && !mainHeading.classList.contains('glitch-effect')) {
+            mainHeading.classList.add('glitch-effect');
+        }
+    }, 1000);
+
+    // অ্যানিমেশন শেষ হলে ক্লাসটি সরিয়ে দিন যাতে এটি আবার ট্রিগার হতে পারে
+    mainHeading.addEventListener('animationend', (event) => {
+        // পরিবর্তন: অ্যানিমেশনের নাম 'glitch-duration' হলে ক্লাসটি সরান
+        if (event.animationName === 'glitch-duration') {
+             mainHeading.classList.remove('glitch-effect');
+        }
+    });
+}
+
+});
+
+// ====================================================================
+// END: Animated Bangla Toolbox Heading
+// ====================================================================
+
+// ====================================================================
 // START: Animated News Ticker Script (Updated with Live News & Navigation)
 // ====================================================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -12178,7 +13303,6 @@ if (!tickerContainer || !tickerTextElement || !prevBtn || !nextBtn) {
     console.error("News ticker elements not found.");
     return;
 }
-
 // --- সেটিংস এখানে ট্রু বা true; সেট করলে নিউজ হেডলাইন দেখাবে এবং ফলস বা false; লিখে দিলে নিচের মেসেজগুলো দেখাবে ---
 const showNewsHeadlines = true;
 
@@ -12193,10 +13317,6 @@ let messageIndex = 0;
 let autoPlayInterval = null;
 const animationInterval = 10000; // ১০ সেকেন্ড
 
-/**
- * বিভিন্ন সংবাদপত্রের RSS ফিড থেকে গত ২ ঘণ্টার খবর নিয়ে আসে।
- * @returns {Promise<object[]|null>} - খবরগুলোর একটি অ্যারে অথবা ব্যর্থ হলে null।
- */
 async function fetchNewsHeadlines() {
     const feeds = {
         'ঢাকা পোস্ট': 'https://www.dhakapost.com/rss',
@@ -12204,7 +13324,7 @@ async function fetchNewsHeadlines() {
         'কালের কণ্ঠ': 'https://www.kalerkantho.com/rss.xml',
         'ইত্তেফাক': 'https://www.ittefaq.com.bd/rss.xml'
     };
-    const twoHoursAgo = new Date(Date.now() - 2 * 60 * 60 * 1000);
+    const eightHoursAgo = new Date(Date.now() - 8 * 60 * 60 * 1000);
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -12215,75 +13335,71 @@ async function fetchNewsHeadlines() {
     }
 
     try {
-        const promises = Object.entries(feeds).map(([source, url]) =>
-            fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`)
-            .then(response => {
-                if (!response.ok) throw new Error(`Failed to fetch from ${url}`);
-                return response.text();
-            })
-            .then(xmlText => ({ source, xmlText }))
-            .catch(err => {
-                console.warn(`Could not fetch from ${source}: ${err.message}`);
-                return null; // Return null on failure
-            })
-        );
+        const promises = Object.entries(feeds).map(async ([source, url]) => {
+            try {
+                // নতুন: ব্রাউজার ক্যাশ এড়ানোর জন্য একটি ইউনিক প্যারামিটার যোগ করা হয়েছে
+                const cacheBuster = `&_=${new Date().getTime()}`;
+                const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}${cacheBuster}`);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch from ${url} with status ${response.status}`);
+                }
+                const data = await response.json();
+                if (data.status !== 'ok') {
+                    throw new Error(`rss2json API error for ${url}: ${data.message}`);
+                }
+                return { source, items: data.items };
+            } catch (err) {
+                console.warn(`Could not fetch or parse from ${source}: ${err.message}`);
+                return null;
+            }
+        });
 
         const results = await Promise.all(promises);
         let allHeadlines = [];
-        const parser = new DOMParser();
 
         results.forEach(result => {
-            if (result) {
-                const { source, xmlText } = result;
-                const doc = parser.parseFromString(xmlText, 'application/xml');
-                const items = doc.querySelectorAll('item');
-
+            if (result && result.items) {
+                const { source, items } = result;
                 items.forEach(item => {
-                    const titleEl = item.querySelector('title');
-                    const linkEl = item.querySelector('link');
-                    const pubDateEl = item.querySelector('pubDate');
-
-                    if (titleEl && linkEl && pubDateEl) {
+                    const { title, link, pubDate } = item;
+                    if (title && link && pubDate) {
                         try {
-                            const pubDate = new Date(pubDateEl.textContent);
-                            if (pubDate > twoHoursAgo) {
+                            const publicationDate = new Date(pubDate);
+                            if (publicationDate > eightHoursAgo) {
                                 allHeadlines.push({
-                                    title: titleEl.textContent.trim(),
-                                    link: linkEl.textContent.trim(),
+                                    title: title.trim(),
+                                    link: link.trim(),
                                     source: source
                                 });
                             }
                         } catch (e) {
-                            console.error("Invalid date in feed:", pubDateEl.textContent);
+                            console.error("Invalid date in feed:", pubDate);
                         }
                     }
                 });
             }
         });
-        
-        if (allHeadlines.length === 0) {
-            return [{ title: "গত ২ ঘণ্টায় কোনো নতুন খবর পাওয়া যায়নি। নেটওয়ার্ক যাচাই করে ব্রাউজার রিফ্রেশ করুন", link: "#", source: "System" }];
-        }
 
-        return shuffleArray([...new Set(allHeadlines.map(item => JSON.stringify(item)))].map(item => JSON.parse(item)));
+        if (allHeadlines.length === 0) {
+            console.log("No news found within the last 8 hours. Showing default message.");
+            return [{ title: "বাংলা টুলবক্স-এ আপনাকে স্বাগতম!", link: "#", source: "System" }];
+        }
+        
+        const uniqueHeadlines = [...new Map(allHeadlines.map(item => [item.title, item])).values()];
+        return shuffleArray(uniqueHeadlines);
 
     } catch (error) {
-        console.error('All news feeds failed:', error);
-        return null;
+        console.error('A critical error occurred while fetching all news feeds:', error);
+        return [{ title: "এই মুহূর্তে কোনো খবর পাওয়া যায়নি। অনুগ্রহ করে ব্রাউজার রিফ্রেশ করুন।", link: "#", source: "System Error" }];
     }
 }
 
-/**
- * স্ক্রিনে বর্তমান শিরোনামটি টাইপিং অ্যানিমেশনসহ দেখানোর ফাংশন।
- * (পরিবর্তিত)
- */
 function displayCurrentHeadline() {
     if (allMessages.length === 0) {
         tickerTextElement.textContent = "বার্তা লোড হচ্ছে...";
         return;
     }
     
-    // ইনডেক্স যেন অ্যারের সীমার মধ্যে থাকে তা নিশ্চিত করা
     if (messageIndex < 0) messageIndex = allMessages.length - 1;
     if (messageIndex >= allMessages.length) messageIndex = 0;
 
@@ -12292,10 +13408,9 @@ function displayCurrentHeadline() {
     
     tickerTextElement.href = currentMessage.link;
     
-    // অ্যানিমেশন এবং স্টাইল রিসেট করা
     tickerTextElement.style.animation = 'none';
-    tickerTextElement.offsetHeight; // রি-ফ্লো ট্রিগার করা
-    tickerTextElement.style.whiteSpace = 'nowrap'; // অ্যানিমেশনের জন্য nowrap সেট করা
+    tickerTextElement.offsetHeight; 
+    tickerTextElement.style.whiteSpace = 'nowrap';
     
     const fullContent = document.createElement('div');
     fullContent.innerHTML = displayText;
@@ -12304,21 +13419,17 @@ function displayCurrentHeadline() {
     const duration = Math.max(3.5, textLength * 0.1);
 
     tickerTextElement.innerHTML = displayText;
-    tickerTextElement.style.width = '0'; // টাইপিং ইফেক্টের জন্য প্রস্থ শূন্য থেকে শুরু হবে
+    tickerTextElement.style.width = '0'; 
     
-    // নতুন অ্যানিমেশন সেট করা (blink-caret ছাড়া)
     tickerTextElement.style.animation = `typing ${duration}s steps(${textLength}, end)`;
     tickerTextElement.style.animationFillMode = 'forwards';
 
-    // অ্যানিমেশন শেষ হলে লেখা র‍্যাপ করার জন্য ইভেন্ট লিসেনার
     const handleAnimationEnd = () => {
-        tickerTextElement.style.whiteSpace = 'normal'; // র‍্যাপ করার অনুমতি দেওয়া
+        tickerTextElement.style.whiteSpace = 'normal';
     };
     
-    // { once: true } ব্যবহার করা হয়েছে যাতে ইভেন্টটি একবারই রান করে
     tickerTextElement.addEventListener('animationend', handleAnimationEnd, { once: true });
 }
-
 
 function showNextHeadline() {
     messageIndex++;
@@ -12339,9 +13450,6 @@ function stopAutoPlay() {
     clearInterval(autoPlayInterval);
 }
 
-/**
- * টিকারটি চালু করার মূল ফাংশন।
- */
 async function initializeTicker() {
     if (showNewsHeadlines) {
         const news = await fetchNewsHeadlines();
@@ -12358,7 +13466,7 @@ async function initializeTicker() {
     startAutoPlay();
 }
 
-// ইভেন্ট লিসেনার
+// Event listeners
 nextBtn.addEventListener('click', () => {
     showNextHeadline();
     startAutoPlay();
@@ -12372,31 +13480,534 @@ prevBtn.addEventListener('click', () => {
 tickerContainer.addEventListener('mouseenter', stopAutoPlay);
 tickerContainer.addEventListener('mouseleave', startAutoPlay);
 
-// টিকার চালু করা হচ্ছে
 initializeTicker();
 
-// ব্যাকগ্রাউন্ডে খবর আপডেট (প্রতি ৫ মিনিটে)
+// নতুন: ব্যাকগ্রাউন্ডে খবর আপডেট এবং ডিসপ্লে রিফ্রেশ (প্রতি ৫ মিনিটে)
 setInterval(async () => {
     if(showNewsHeadlines) {
-        console.log("Background news update...");
+        console.log("Background news update at 5-minute interval...");
         const news = await fetchNewsHeadlines();
-        if (news && news.length > 0) {
+        // নতুন খবর পাওয়া গেছে কিনা তা চেক করুন
+        if (news && news.length > 0 && JSON.stringify(news) !== JSON.stringify(allMessages)) {
+            console.log("New headlines found. Updating ticker.");
             const currentLink = allMessages[messageIndex]?.link;
-            const newIndex = news.findIndex(item => item.link === currentLink);
-
+            
             allMessages = news;
-            if (newIndex !== -1) {
-                messageIndex = newIndex;
-            }
+            
+            const newIndex = news.findIndex(item => item.link === currentLink);
+            messageIndex = (newIndex !== -1) ? newIndex : 0;
+            
+            // নতুন খবর তাৎক্ষণিকভাবে ডিসপ্লে করুন
+            displayCurrentHeadline();
+            
+            // অটো-প্লে পুনরায় শুরু করুন
+            startAutoPlay();
+        } else {
+            console.log("No new headlines found or data is the same.");
         }
     }
-}, 5 * 60 * 1000);
+}, 5 * 60 * 1000); // 5 minutes
 
 });
 // ====================================================================
 // END: Animated News Ticker Script
 // ====================================================================
 
+// ====================================================================
+// START: HEALTH & LIFESTYLE TAB SCRIPT
+// ====================================================================
+function initializeHealthLifestyleTab() {
+    // --- Pregnancy Due Date Calculator Elements ---
+    const lmpDateInput = document.getElementById('lmpDate');
+    const calculateDueDateBtn = document.getElementById('calculateDueDateBtn');
+    const dueDateResultArea = document.getElementById('dueDateResultArea');
+
+    // --- Water Intake Calculator Elements ---
+    const userAgeInput = document.getElementById('userAge');
+    const userWeightInput = document.getElementById('userWeight');
+    const activityLevelSelect = document.getElementById('activityLevel');
+    const calculateWaterIntakeBtn = document.getElementById('calculateWaterIntakeBtn');
+    const waterIntakeResultArea = document.getElementById('waterIntakeResultArea');
+
+    // --- Pregnancy Calculator Logic ---
+    function calculateDueDate() {
+        if (!lmpDateInput.value) {
+            dueDateResultArea.innerHTML = `<p class="text-red-600">অনুগ্রহ করে আপনার শেষ মাসিকের প্রথম দিন নির্বাচন করুন।</p>`;
+            return;
+        }
+
+        const lmp = new Date(lmpDateInput.value);
+        
+        // Naegele's rule: LMP + 280 days (40 weeks)
+        const dueDate = new Date(lmp);
+        dueDate.setDate(dueDate.getDate() + 280);
+
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDueDate = dueDate.toLocaleDateString('bn-BD', options);
+        
+        dueDateResultArea.innerHTML = `<h4>আপনার সম্ভাব্য ডিউ ডেট</h4><p>${formattedDueDate}</p>`;
+    }
+
+    // --- Water Intake Calculator Logic ---
+    function calculateWaterIntake() {
+        const age = parseInt(userAgeInput.value);
+        const weight = parseFloat(userWeightInput.value);
+        const activityMinutes = parseInt(activityLevelSelect.value);
+
+        if (isNaN(age) || isNaN(weight) || age <= 0 || weight <= 0) {
+            waterIntakeResultArea.innerHTML = `<p class="text-red-600">অনুগ্রহ করে সঠিক বয়স ও ওজন লিখুন।</p>`;
+            return;
+        }
+        
+        // Base intake: 30-35 ml per kg of body weight
+        let baseIntakeMl = weight * 33;
+
+        // Adjust for activity: Add 350-400 ml for every 30 mins of exercise
+        let activityIntakeMl = (activityMinutes / 30) * 375;
+
+        const totalIntakeMl = baseIntakeMl + activityIntakeMl;
+        const totalIntakeLiters = (totalIntakeMl / 1000).toFixed(1);
+
+        waterIntakeResultArea.innerHTML = `<h4>আপনার দৈনিক পানির চাহিদা</h4><p>আপনার প্রতিদিন প্রায় ${totalIntakeLiters} লিটার পানি পান করা উচিত।</p>`;
+    }
+
+    // --- Event Listeners ---
+    if (calculateDueDateBtn) {
+        calculateDueDateBtn.addEventListener('click', calculateDueDate);
+    }
+    if (calculateWaterIntakeBtn) {
+        calculateWaterIntakeBtn.addEventListener('click', calculateWaterIntake);
+    }
+}
+// ====================================================================
+// END: HEALTH & LIFESTYLE TAB SCRIPT
+// ====================================================================
+
+
+// ====================================================================
+// START: DAYS/OBSERVANCES SCRIPT (দিবসসমূহ)
+// ====================================================================
+function initializeDaysObservancesTab() {
+    // DOM Elements
+    const yearSelectInput = document.getElementById('observanceYearSelect');
+    const bangladeshiDaysList = document.getElementById('bangladeshiDaysList');
+    const internationalDaysList = document.getElementById('internationalDaysList');
+    // নতুন সেকশনের জন্য DOM Elements
+    const upcomingNationalDayCard = document.getElementById('upcomingNationalDay');
+    const upcomingInternationalDayCard = document.getElementById('upcomingInternationalDay');
+
+
+    if (!yearSelectInput || !bangladeshiDaysList || !internationalDaysList) return;
+
+    // Data for observances
+    const bangladeshiObservances = [
+        { name: "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস", month: 1, day: 21 },
+        { name: "জাতীয় শিশু দিবস (বঙ্গবন্ধুর জন্মদিন)", month: 2, day: 17 },
+        { name: "স্বাধীনতা দিবস", month: 2, day: 26 },
+        { name: "পহেলা বৈশাখ (বাংলা নববর্ষ)", month: 3, day: 14 },
+        { name: "শ্রমিক দিবস (মে দিবস)", month: 4, day: 1 },
+        { name: "জাতীয় শোক দিবস", month: 7, day: 15 },
+        { name: "শহীদ বুদ্ধিজীবী দিবস", month: 11, day: 14 },
+        { name: "বিজয় দিবস", month: 11, day: 16 }
+    ];
+
+    const internationalObservances = [
+        { name: "নববর্ষ", month: 0, day: 1 },
+        { name: "বিশ্ব ভালোবাসা দিবস", month: 1, day: 14 },
+        { name: "আন্তর্জাতিক নারী দিবস", month: 2, day: 8 },
+        { name: "এপ্রিল ফুলস ডে", month: 3, day: 1 },
+        { name: "বিশ্ব পরিবেশ দিবস", month: 4, day: 5 },
+        { name: "মা দিবস", dateFn: (year) => getNthWeekdayOfMonth(year, 4, 0, 2) }, // 2nd Sunday of May
+        { name: "বাবা দিবস", dateFn: (year) => getNthWeekdayOfMonth(year, 5, 0, 3) }, // 3rd Sunday of June
+        { name: "বিশ্ব শিক্ষক দিবস", month: 9, day: 5 },
+        { name: "হ্যালোউইন", month: 9, day: 31 },
+        { name: "বড়দিন", month: 11, day: 25 }
+    ];
+
+    function getNthWeekdayOfMonth(year, month, weekday, n) {
+        const date = new Date(year, month, 1);
+        let count = 0;
+        while (date.getDay() !== weekday) {
+            date.setDate(date.getDate() + 1);
+        }
+        date.setDate(date.getDate() + (n - 1) * 7);
+        return date;
+    }
+    
+    // নতুন ফাংশন: আগত দিবস খুঁজে বের করার জন্য
+    function findUpcomingDay(observances, today) {
+        const currentYear = today.getFullYear();
+        
+        const upcoming = observances.map(obs => {
+            let date = obs.dateFn ? obs.dateFn(currentYear) : new Date(currentYear, obs.month, obs.day);
+            // যদি তারিখটি ইতোমধ্যে চলে গিয়ে থাকে, তবে পরের বছরের তারিখ গণনা করুন
+            if (date < today) {
+                date = obs.dateFn ? obs.dateFn(currentYear + 1) : new Date(currentYear + 1, obs.month, obs.day);
+            }
+            return { name: obs.name, date: date };
+        })
+        .sort((a, b) => a.date - b.date); // তারিখ অনুযায়ী সাজান
+
+        return upcoming[0]; // সবচেয়ে কাছের তারিখটি রিটার্ন করুন
+    }
+
+    // নতুন ফাংশন: আগত দিবসের কার্ড আপডেট করার জন্য
+    function displayUpcomingObservances() {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // শুধুমাত্র তারিখ তুলনা করার জন্য সময় রিসেট করুন
+
+        const upcomingNational = findUpcomingDay(bangladeshiObservances, today);
+        const upcomingInternational = findUpcomingDay(internationalObservances, today);
+
+        const dateFormatter = new Intl.DateTimeFormat('bn-BD', { day: 'numeric', month: 'long' });
+        const weekdayFormatter = new Intl.DateTimeFormat('bn-BD', { weekday: 'long' });
+
+        if (upcomingNationalDayCard && upcomingNational) {
+            upcomingNationalDayCard.innerHTML = `
+                <div class="card-supertitle">আগত জাতীয় দিবস</div>
+                <div class="card-day-name">${upcomingNational.name}</div>
+                <div class="card-day-date">${dateFormatter.format(upcomingNational.date)} (${weekdayFormatter.format(upcomingNational.date)})</div>
+            `;
+        }
+        
+        if (upcomingInternationalDayCard && upcomingInternational) {
+            upcomingInternationalDayCard.innerHTML = `
+                <div class="card-supertitle">আগত আন্তর্জাতিক দিবস</div>
+                <div class="card-day-name">${upcomingInternational.name}</div>
+                <div class="card-day-date">${dateFormatter.format(upcomingInternational.date)} (${weekdayFormatter.format(upcomingInternational.date)})</div>
+            `;
+        }
+    }
+
+
+    function displayObservances(year) {
+        bangladeshiDaysList.innerHTML = '';
+        internationalDaysList.innerHTML = '';
+
+        const dateFormatter = new Intl.DateTimeFormat('bn-BD', { day: 'numeric', month: 'long' });
+        const weekdayFormatter = new Intl.DateTimeFormat('bn-BD', { weekday: 'long' });
+
+        bangladeshiObservances.forEach(obs => {
+            const date = new Date(year, obs.month, obs.day);
+            renderDayItem(date, obs.name, bangladeshiDaysList, dateFormatter, weekdayFormatter);
+        });
+
+        internationalObservances.forEach(obs => {
+            const date = obs.dateFn ? obs.dateFn(year) : new Date(year, obs.month, obs.day);
+            renderDayItem(date, obs.name, internationalDaysList, dateFormatter, weekdayFormatter);
+        });
+    }
+    
+    function renderDayItem(date, name, listElement, dateFormatter, weekdayFormatter) {
+        const dateString = dateFormatter.format(date);
+        const weekdayString = weekdayFormatter.format(date);
+
+        const item = document.createElement('div');
+        item.className = 'day-item';
+        item.innerHTML = `
+            <div class="day-name">${name}</div>
+            <div class="day-date">${dateString} (${weekdayString})</div>
+        `;
+        listElement.appendChild(item);
+    }
+
+    yearSelectInput.addEventListener('input', () => {
+        const year = parseInt(yearSelectInput.value, 10);
+        if (!isNaN(year) && year > 1900 && year < 2100) {
+            displayObservances(year);
+        }
+    });
+
+    // Initial setup
+    const currentYear = new Date().getFullYear();
+    yearSelectInput.value = currentYear;
+    displayObservances(currentYear);
+    displayUpcomingObservances(); // নতুন ফাংশনটি কল করুন
+}
+// ====================================================================
+// END: DAYS/OBSERVANCES SCRIPT
+// ====================================================================
+
+// ====================================================================
+// START: HOLIDAY LIST SCRIPT (ছুটির তালিকা) - Gemini API ইন্টিগ্রেটেড
+// ====================================================================
+function initializeHolidayListTab() {
+    const yearSelectInput = document.getElementById('holidayYearSelect');
+    const holidayTableBody = document.querySelector('#holidayTable tbody');
+    const upcomingHolidayCard = document.getElementById('upcomingHolidayCard');
+    const refreshButton = document.getElementById('refreshHolidayListBtn'); // নতুন বাটন
+
+    if (!yearSelectInput || !holidayTableBody || !upcomingHolidayCard || !refreshButton) return;
+
+    // The holidayCache is no longer needed as a local variable.
+    // We will use sessionStorage directly to cache data for the session.
+
+    // Nager.Date API ব্যর্থ হলে অফলাইন ফলব্যাক ডেটা
+    const localHolidayData = {
+        2024: [
+            { date: '2024-02-21', localName: 'শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস', name: 'Shaheed Day' },
+            { date: '2024-02-26', localName: 'শব-ই-বরাত', name: 'Shab-e-Barat' },
+            { date: '2024-03-17', localName: 'বঙ্গবন্ধুর জন্মদিন', name: 'Sheikh Mujibur Rahman\'s Birthday' },
+            { date: '2024-03-26', localName: 'স্বাধীনতা দিবস', name: 'Independence Day' },
+            { date: '2024-04-05', localName: 'জুমাতুল বিদা', name: 'Jumatul Bidah' },
+            { date: '2024-04-07', localName: 'শব-ই-কদর', name: 'Shab-e-Qadr' },
+            { date: '2024-04-10', localName: 'ঈদ-উল-ফিতরের আগের দিন', name: 'Eid al-Fitr Holiday' },
+            { date: '2024-04-11', localName: 'ঈদ-উল-ফিতর', name: 'Eid al-Fitr' },
+            { date: '2024-04-12', localName: 'ঈদ-উল-ফিতরের পরের দিন', name: 'Eid al-Fitr Holiday' },
+            { date: '2024-04-14', localName: 'পহেলা বৈশাখ', name: 'Pahela Baishakh' },
+            { date: '2024-05-01', localName: 'মে দিবস', name: 'May Day' },
+            { date: '2024-05-22', localName: 'বুদ্ধ পূর্ণিমা', name: 'Buddha Purnima' },
+            { date: '2024-06-16', localName: 'ঈদ-উল-আযহার আগের দিন', name: 'Eid al-Adha Holiday' },
+            { date: '2024-06-17', localName: 'ঈদ-উল-আযহা', name: 'Eid al-Adha' },
+            { date: '2024-06-18', localName: 'ঈদ-উল-আযহার পরের দিন', name: 'Eid al-Adha Holiday' },
+            { date: '2024-07-17', localName: 'আশুরা', name: 'Ashura' },
+            { date: '2024-08-15', localName: 'জাতীয় শোক দিবস', name: 'National Mourning Day' },
+            { date: '2024-08-26', localName: 'শুভ জন্মাষ্টমী', name: 'Janmashtami' },
+            { date: '2024-09-16', localName: 'ঈদ-ই-মিলাদুন্নবী (ﷺ)', name: 'Eid-e-Milad un-Nabi' },
+            { date: '2024-10-13', localName: 'দুর্গাপূজা (বিজয়া দশমী)', name: 'Durga Puja' },
+            { date: '2024-12-16', localName: 'বিজয় দিবস', name: 'Victory Day' },
+            { date: '2024-12-25', localName: 'বড়দিন', name: 'Christmas Day' },
+        ],
+        2025: [
+             { date: '2025-02-14', localName: 'শব-ই-মিরাজ', name: 'Shab-e-Meraj' },
+             { date: '2025-02-21', localName: 'শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস', name: 'Shaheed Day' },
+             { date: '2025-03-03', localName: 'শব-ই-বরাত', name: 'Shab-e-Barat' },
+             { date: '2025-03-17', localName: 'বঙ্গবন্ধুর জন্মদিন', name: 'Sheikh Mujibur Rahman\'s Birthday' },
+             { date: '2025-03-26', localName: 'স্বাধীনতা দিবস', name: 'Independence Day' },
+             { date: '2025-03-28', localName: 'জুমাতুল বিদা', name: 'Jumatul Bidah' },
+             { date: '2025-03-30', localName: 'ঈদ-উল-ফিতরের আগের দিন', name: 'Eid al-Fitr Holiday' },
+             { date: '2025-03-31', localName: 'ঈদ-উল-ফিতর', name: 'Eid al-Fitr' },
+             { date: '2025-04-01', localName: 'ঈদ-উল-ফিতরের পরের দিন', name: 'Eid al-Fitr Holiday' },
+             { date: '2025-04-14', localName: 'পহেলা বৈশাখ', name: 'Pahela Baishakh' },
+             { date: '2025-05-01', localName: 'মে দিবস', name: 'May Day' },
+             { date: '2025-05-12', localName: 'বুদ্ধ পূর্ণিমা', name: 'Buddha Purnima' },
+             { date: '2025-06-06', localName: 'ঈদ-উল-আযহার আগের দিন', name: 'Eid al-Adha Holiday' },
+             { date: '2025-06-07', localName: 'ঈদ-উল-আযহা', name: 'Eid al-Adha' },
+             { date: '2025-06-08', localName: 'ঈদ-উল-আযহার পরের দিন', name: 'Eid al-Adha Holiday' },
+             { date: '2025-07-06', localName: 'আশুরা', name: 'Ashura' },
+             { date: '2025-08-15', localName: 'জাতীয় শোক দিবস', name: 'National Mourning Day' },
+             { date: '2025-08-16', localName: 'শুভ জন্মাষ্টমী', name: 'Janmashtami' },
+             { date: '2025-09-05', localName: 'ঈদ-ই-মিলাদুন্নবী (ﷺ)', name: 'Eid-e-Milad un-Nabi' },
+             { date: '2025-10-02', localName: 'দুর্গাপূজা (বিজয়া দশমী)', name: 'Durga Puja' },
+             { date: '2025-12-16', localName: 'বিজয় দিবস', name: 'Victory Day' },
+             { date: '2025-12-25', localName: 'বড়দিন', name: 'Christmas Day' },
+        ]
+    };
+
+    const moonSightingKeywords = [
+        'ঈদ', 'ফিতর', 'আযহা', 'শব-ই-বরাত', 'শব-ই-কদর',
+        'শব-ই-মিরাজ', 'আশুরা', 'জুমাতুল বিদা', 'মিলাদুন্নবী'
+    ];
+    
+    // Fallback function using Nager.Date API
+    async function fetchHolidaysFromNager(year) {
+        showCustomAlert('Gemini API থেকে ডেটা আনা যায়নি। বিকল্প উৎস থেকে চেষ্টা করা হচ্ছে।');
+        const nagerCacheKey = `nager_holidays_${year}`;
+        
+        // sessionStorage থেকে ডেটা চেক করুন
+        const cachedData = sessionStorage.getItem(nagerCacheKey);
+        if (cachedData) {
+            console.log(`Nager data for ${year} loaded from session cache.`);
+            processAndRenderHolidays(JSON.parse(cachedData), year);
+            return;
+        }
+
+        try {
+            const response = await fetch(`https://date.nager.at/api/v3/PublicHolidays/${year}/BD`);
+            if (!response.ok) {
+                throw new Error(`Nager API থেকে ডেটা আনা সম্ভব হয়নি (Status: ${response.status})`);
+            }
+            const apiHolidays = await response.json();
+            // sessionStorage-এ ডেটা সেভ করুন
+            sessionStorage.setItem(nagerCacheKey, JSON.stringify(apiHolidays));
+            processAndRenderHolidays(apiHolidays, year);
+        } catch (nagerError) {
+            console.error("Nager.Date API fetch error:", nagerError);
+            if (localHolidayData[year]) {
+                showCustomAlert('বিকল্প উৎস থেকেও ডেটা আনা যায়নি। অফলাইন তালিকা দেখানো হচ্ছে।');
+                processAndRenderHolidays(localHolidayData[year], year);
+            } else {
+                holidayTableBody.innerHTML = `<tr><td colspan="3" class="text-center p-4 text-red-500">ছুটির তালিকা লোড করতে সমস্যা হয়েছে।</td></tr>`;
+                upcomingHolidayCard.innerHTML = `<div class="card-supertitle">আগত ছুটি</div><div class="card-day-name text-red-300">তথ্য পাওয়া যায়নি</div>`;
+            }
+        }
+    }
+
+    // Main function to load holidays, trying Gemini first
+    async function loadAndDisplayHolidays(year) {
+        holidayTableBody.innerHTML = `<tr><td colspan="3" class="text-center p-4">ছুটির তালিকা লোড হচ্ছে...</td></tr>`;
+        upcomingHolidayCard.innerHTML = `<div class="card-supertitle">আগত ছুটি</div><div class="card-day-name">লোড হচ্ছে...</div>`;
+        
+        const geminiCacheKey = `gemini_holidays_${year}`;
+        
+        // sessionStorage থেকে ডেটা চেক করুন
+        const cachedData = sessionStorage.getItem(geminiCacheKey);
+        if (cachedData) {
+            console.log(`Gemini data for ${year} loaded from session cache.`);
+            processAndRenderHolidays(JSON.parse(cachedData), year);
+            return;
+        }
+
+        const apiKey = localStorage.getItem('geminiApiKey');
+        if (!apiKey) {
+            fetchHolidaysFromNager(year); // Fallback if no API key
+            return;
+        }
+
+        try {
+            const prompt = `Provide a list of all public holidays in Bangladesh for the year ${year}. The response must be a valid JSON array of objects. Each object must have two keys: "date" (in "YYYY-MM-DD" format) and "localName" (the name of the holiday in Bengali, including any relevant notes like 'চাঁদ দেখার উপর নির্ভরশীল'). Do not include any text, explanations, or markdown formatting outside of the JSON array.`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }]
+            };
+            const model = "gemini-2.5-flash-preview-05-20";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error(`Gemini API error! Status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            const rawText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+            if (!rawText) {
+                throw new Error("Gemini API থেকে কোনো ডেটা পাওয়া যায়নি।");
+            }
+            
+            // Clean the response text to ensure it's valid JSON
+            const jsonText = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
+            const geminiHolidays = JSON.parse(jsonText);
+            
+            if (!Array.isArray(geminiHolidays)) {
+                 throw new Error("Gemini API থেকে পাওয়া ডেটা সঠিক ফরম্যাটে নেই।");
+            }
+
+            // sessionStorage-এ ডেটা সেভ করুন
+            sessionStorage.setItem(geminiCacheKey, JSON.stringify(geminiHolidays));
+            processAndRenderHolidays(geminiHolidays, year);
+
+        } catch (error) {
+            console.error("Gemini API Holiday fetch error:", error);
+            fetchHolidaysFromNager(year); // Fallback to Nager.Date API on any error
+        }
+    }
+
+    // ডেটা প্রসেস এবং টেবিল ও কার্ডে প্রদর্শন করার ফাংশন
+    function processAndRenderHolidays(apiHolidays, year) {
+        let allHolidays = [];
+
+        // বছরের সকল শুক্রবার ও শনিবার বের করুন
+        for (let month = 0; month < 12; month++) {
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            for (let day = 1; day <= daysInMonth; day++) {
+                const currentDate = new Date(year, month, day);
+                const dayOfWeek = currentDate.getDay();
+                if (dayOfWeek === 5 || dayOfWeek === 6) { // 5 = Friday, 6 = Saturday
+                    allHolidays.push({
+                        date: currentDate,
+                        occasion: 'সাপ্তাহিক ছুটি',
+                        type: 'weekend'
+                    });
+                }
+            }
+        }
+        
+        // API থেকে পাওয়া সরকারি ছুটি যোগ করুন
+        apiHolidays.forEach(holiday => {
+            const holidayDate = new Date(holiday.date);
+            // API timezone 이슈 해결을 위해 UTC 기준으로 날짜를 맞춥니다.
+            const utcDate = new Date(Date.UTC(holidayDate.getFullYear(), holidayDate.getMonth(), holidayDate.getDate()));
+
+            const isMoonSighting = moonSightingKeywords.some(keyword => holiday.name?.includes(keyword) || holiday.localName.includes(keyword) || holiday.localName.includes('চাঁদ'));
+            const holidayType = isMoonSighting ? 'moon-sighting' : 'gov';
+            
+            const existingHolidayIndex = allHolidays.findIndex(h => h.date.getTime() === utcDate.getTime());
+            
+            if (existingHolidayIndex !== -1) {
+                // যদি সাপ্তাহিক ছুটির দিনে সরকারি ছুটি থাকে
+                allHolidays[existingHolidayIndex].occasion = holiday.localName;
+                allHolidays[existingHolidayIndex].type = holidayType;
+            } else {
+                allHolidays.push({
+                    date: utcDate,
+                    occasion: holiday.localName,
+                    type: holidayType
+                });
+            }
+        });
+
+        // তারিখ অনুযায়ী ছুটিগুলো সাজান
+        allHolidays.sort((a, b) => a.date - b.date);
+
+        // টেবিল তৈরি করুন
+        holidayTableBody.innerHTML = '';
+        const dateFormatter = new Intl.DateTimeFormat('bn-BD', { day: 'numeric', month: 'long', year: 'numeric' });
+        const weekdayFormatter = new Intl.DateTimeFormat('bn-BD', { weekday: 'long' });
+
+        allHolidays.forEach(holiday => {
+            const tr = document.createElement('tr');
+            tr.className = `${holiday.type}-holiday`;
+            tr.innerHTML = `
+                <td class="px-6 py-4">${dateFormatter.format(holiday.date)}</td>
+                <td class="px-6 py-4">${weekdayFormatter.format(holiday.date)}</td>
+                <td class="px-6 py-4 font-semibold">${holiday.occasion}</td>
+            `;
+            holidayTableBody.appendChild(tr);
+        });
+
+        // আগত ছুটি খুঁজে বের করে কার্ডে দেখান
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // শুধুমাত্র তারিখ তুলনা করার জন্য
+        const upcomingHoliday = allHolidays.find(h => h.date >= today && h.type !== 'weekend'); // শুধু সরকারি ছুটি খুঁজুন
+
+        if (upcomingHoliday) {
+            upcomingHolidayCard.innerHTML = `
+                <div class="card-supertitle">পরবর্তী ছুটি</div>
+                <div class="card-day-name">${upcomingHoliday.occasion}</div>
+                <div class="card-day-date">${dateFormatter.format(upcomingHoliday.date)} (${weekdayFormatter.format(upcomingHoliday.date)})</div>
+            `;
+        } else {
+            upcomingHolidayCard.innerHTML = `
+                <div class="card-supertitle">আগত ছুটি</div>
+                <div class="card-day-name">এই বছরে আর কোনো সরকারি ছুটি নেই</div>
+            `;
+        }
+    }
+
+    yearSelectInput.addEventListener('input', () => {
+        const year = parseInt(yearSelectInput.value, 10);
+        if (!isNaN(year) && year > 2000 && year < 2050) {
+            loadAndDisplayHolidays(year);
+        }
+    });
+
+    // নতুন: রিফ্রেশ বাটনের জন্য ইভেন্ট লিসেনার
+    refreshButton.addEventListener('click', () => {
+        const year = parseInt(yearSelectInput.value, 10);
+        if (!isNaN(year)) {
+            // ক্যাশ পরিষ্কার করুন
+            sessionStorage.removeItem(`gemini_holidays_${year}`);
+            sessionStorage.removeItem(`nager_holidays_${year}`);
+            showCustomAlert(`${year} সালের ছুটির তালিকা রিফ্রেশ করা হচ্ছে...`);
+            // ডেটা আবার লোড করুন
+            loadAndDisplayHolidays(year);
+        }
+    });
+
+    // ইনিশিয়ালাইজেশন
+    const currentYear = new Date().getFullYear();
+    yearSelectInput.value = currentYear;
+    loadAndDisplayHolidays(currentYear);
+}
+// ====================================================================
+// END: HOLIDAY LIST SCRIPT
+// ====================================================================
 
 
 //এই কমেন্টের আগেও নতুন ট্যাব এর স্ক্রিপ্ট বসানো যাবে বা বসাতে হয় ।
@@ -12431,4 +14042,3 @@ setInterval(async () => {
     </script>
 </body>
 </html>
-
