@@ -77,8 +77,15 @@
 ## 📬 Contact & Support
 
 - **Developer**: MD. RASEL RAHMAN ROCKY  
-- **Email**: [raselrhaman870@gmail.com](mailto:raselrhaman870@gmail.com)  
-- **Phone (for donations)**: `01756001039` (Bkash/Nagad/Rocket)
+- **Email**: [raselrhaman870@gmail.com](mailto:raselrhaman870@gmail.com) 
+
+---
+
+- ### 📱 Scan to Donate (bKash)
+
+![bKash QR Code](https://cdn.jsdelivr.net/gh/raselrahmanrocky/raselrahmanrocky.github.io@main/Bkash%20QR%20Code.jpg)
+
+> **Note:** This QR code is for **"Send Money"** to the number above.
 
 > 💖 **Like this project?**  
 > Consider supporting its development with a small donation. Every contribution helps keep Bangla Toolbox free and growing!
