@@ -1,5 +1,5 @@
 
-# 🇧🇩 Bangla Toolbox
+# Bangla Toolbox
 
 > **Your All-in-One Toolkit for Bengali Language & Daily Life Utilities**
 
@@ -83,10 +83,9 @@
 
 - ### 📱 Scan to Donate (bKash)
 
-<img src="https://cdn.jsdelivr.net/gh/raselrahmanrocky/raselrahmanrocky.github.io@main/Bkash%20QR%20Code.jpg" alt="bKash QR Code (Send Money)" width="400" height="400">
-![bKash QR Code](https://cdn.jsdelivr.net/gh/raselrahmanrocky/raselrahmanrocky.github.io@main/Bkash%20QR%20Code.jpg)
+<img src="https://cdn.jsdelivr.net/gh/raselrahmanrocky/raselrahmanrocky.github.io@main/Bkash%20QR%20Code.jpg" alt="bKash QR Code (Send Money)" width="300" height="300">
 
-> **Note:** This QR code is for **"Send Money"** to the number above.
+> **Note:** This QR code is for **"Send Money Only"** to the number above.
 
 > 💖 **Like this project?**  
 > Consider supporting its development with a small donation. Every contribution helps keep Bangla Toolbox free and growing!
