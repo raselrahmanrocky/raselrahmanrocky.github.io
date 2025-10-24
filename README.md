@@ -83,6 +83,7 @@
 
 - ### 📱 Scan to Donate (bKash)
 
+<img src="https://cdn.jsdelivr.net/gh/raselrahmanrocky/raselrahmanrocky.github.io@main/Bkash%20QR%20Code.jpg" alt="bKash QR Code (Send Money)" width="400" height="400">
 ![bKash QR Code](https://cdn.jsdelivr.net/gh/raselrahmanrocky/raselrahmanrocky.github.io@main/Bkash%20QR%20Code.jpg)
 
 > **Note:** This QR code is for **"Send Money"** to the number above.
